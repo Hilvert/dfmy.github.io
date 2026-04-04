@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>牢杜游戏站</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">GV</span>
+          <div>
+            <p class="brand-title">牢杜游戏站</p>
+            <p class="brand-subtitle">高挑战游戏社区</p>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <div class="user-pill" id="user-pill">
+            <span class="user-label">当前状态</span>
+            <strong id="user-name-display">游客</strong>
+          </div>
+          <button class="top-link" id="login-trigger" type="button">登录账号</button>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">DISCOVER YOUR NEXT FAVORITE GAME</p>
+          <h3>更难、更有意思、还能登录互动的游戏网站</h3>
+          <p class="hero-text">
+            浏览高质量封面游戏，挑战更复杂的站内小游戏，登录后保留你的身份并在评论区留下战绩与心得。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#games">浏览游戏</a>
+            <button class="button secondary" id="random-pick" type="button">随机挑战</button>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-card glow">
+            <span>挑战升级</span>
+            <strong>多阶段规则、计时、评分与失败条件</strong>
+          </div>
+          <div class="panel-card">
+            <span>账号系统</span>
+            <strong>支持登录、退出与本地保存身份</strong>
+          </div>
+          <div class="panel-card accent">
+            <span>内容规模</span>
+            <strong>12 款封面游戏 + 多种高难玩法</strong>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="controls" id="games">
+        <div class="section-heading">
+          <p class="eyebrow">GAME LIBRARY</p>
+          <h3>高挑战封面游戏列表</h3>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="search-input" type="text" placeholder="输入游戏名或类型">
+          </label>
+
+          <label class="filter-box">
+            <span>类型</span>
+            <select id="genre-filter">
+              <option value="all">全部类型</option>
+            </select>
+          </label>
+
+          <label class="filter-box">
+            <span>排序</span>
+            <select id="sort-filter">
+              <option value="rating">按评分</option>
+              <option value="name">按名称</option>
+              <option value="players">按玩家数</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="网站统计">
+        <article class="stat-card">
+          <span>游戏总数</span>
+          <strong id="game-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>覆盖类型</span>
+          <strong id="genre-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span>社区评论</span>
+          <strong id="comment-count">0</strong>
+        </article>
+      </section>
+
+      <section class="game-grid" id="game-grid" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="game-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-close"></div>
+    <div class="modal-dialog">
+      <button class="modal-exit" id="modal-exit" type="button" aria-label="关闭">×</button>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <div class="auth-modal hidden" id="auth-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="auth-close"></div>
+    <div class="auth-dialog">
+      <button class="modal-exit" id="auth-exit" type="button" aria-label="关闭">×</button>
+      <div class="auth-card">
+        <p class="eyebrow">PLAYER LOGIN</p>
+        <h2>登录你的玩家身份</h2>
+        <p class="hero-text">登录后会在本地保存昵称，评论会自动使用你的账号名。</p>
+        <form class="auth-form" id="auth-form">
+          <input id="auth-name" type="text" maxlength="18" placeholder="输入昵称" required>
+          <input id="auth-password" type="password" minlength="4" maxlength="24" placeholder="输入密码" required>
+          <button class="button primary full" type="submit">立即登录</button>
+        </form>
+        <div class="auth-actions">
+          <button class="button ghost full" id="logout-button" type="button">退出登录</button>
+        </div>
+        <p class="auth-tip" id="auth-status">未登录时将以游客身份浏览。</p>
+      </div>
+    </div>
+  </div>
+
+  <template id="game-detail-template">
+    <section class="detail-layout">
+      <div class="detail-cover">
+        <img class="detail-image" id="detail-image" alt="游戏封面图">
+        <div class="detail-overlay"></div>
+        <div class="detail-info">
+          <div class="detail-badge" id="detail-genre"></div>
+          <h3 id="detail-title"></h3>
+          <p id="detail-description"></p>
+          <div class="detail-meta">
+            <span id="detail-rating"></span>
+            <span id="detail-players"></span>
+            <span id="detail-platform"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-side">
+        <div class="play-panel">
+          <div class="play-head">
+            <div>
+              <h4>开始挑战</h4>
+              <p id="play-mode-label">高挑战小游戏模式</p>
+            </div>
+            <button class="button primary" id="launch-game" type="button">立即开始</button>
+          </div>
+          <div class="game-stage" id="game-stage">
+            <div class="empty-stage">点击“立即开始”后，这里会加载更高难度的挑战玩法。</div>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <h4>亮点特色</h4>
+          <ul id="detail-features"></ul>
+        </div>
+
+        <div class="comment-panel">
+          <div class="comment-head">
+            <h4>玩家评论</h4>
+            <span id="detail-comment-count">0 条</span>
+          </div>
+
+          <form class="comment-form" id="comment-form">
+            <input id="comment-name" type="text" maxlength="20" placeholder="你的昵称" required>
+            <select id="comment-rating" required>
+              <option value="">评分</option>
+              <option value="5">5 星</option>
+              <option value="4">4 星</option>
+              <option value="3">3 星</option>
+              <option value="2">2 星</option>
+              <option value="1">1 星</option>
+            </select>
+            <textarea id="comment-text" maxlength="180" placeholder="写下你对这款游戏的看法..." required></textarea>
+            <button class="button primary full" type="submit">发布评论</button>
+          </form>
+
+          <div class="comment-list" id="comment-list"></div>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
