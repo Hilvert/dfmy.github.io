@@ -19,8 +19,6 @@ function createPoster({ title, subtitle, palette, icon }) {
     </svg>`;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
-const AUTH_KEY="gameverse-user";
-const COMMENT_KEY="gameverse-comments";
 const games=[
 {id:"galaxy-hunters",name:"Galaxy Hunters",genre:"动作射击",rating:4.8,players:"1-4 人",platform:"PC / 网页",description:"高速反应射击挑战，真假目标混入。",features:["真假目标","连击倍率","误点扣分"],image:createPoster({title:"GALAXY HUNTERS",subtitle:"Action Shooter",palette:["#071a52","#1f4287","#5be7ff"],icon:"✦"})},
 {id:"crown-chess",name:"Crown Chess",genre:"策略战棋",rating:4.7,players:"单人",platform:"PC",description:"高压博弈，需要读懂对手节奏。",features:["回合博弈","资源管理","多轮胜负"],image:createPoster({title:"CROWN CHESS",subtitle:"Strategy",palette:["#3c2317","#7b4f2c","#d4a373"],icon:"♜"})},
