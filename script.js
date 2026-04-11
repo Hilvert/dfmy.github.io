@@ -1,3 +1,6 @@
+const AUTH_KEY = "game_site_auth_v2";
+const COMMENT_KEY = "game_site_comments_v2";
+
 function createPoster({ title, subtitle, palette, icon }) {
   const [a, b, c] = palette;
   const svg = `
@@ -10,231 +13,116 @@ function createPoster({ title, subtitle, palette, icon }) {
         </linearGradient>
       </defs>
       <rect width="800" height="520" fill="url(#bg)" />
-      <circle cx="660" cy="110" r="88" fill="rgba(255,255,255,0.12)" />
-      <circle cx="130" cy="390" r="120" fill="rgba(255,255,255,0.08)" />
-      <rect x="46" y="48" width="708" height="424" rx="26" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.18)" />
-      <text x="76" y="150" fill="white" font-size="32" font-family="Arial, sans-serif" opacity="0.88">${subtitle}</text>
-      <text x="76" y="250" fill="white" font-size="82" font-weight="700" font-family="Arial, sans-serif">${title}</text>
-      <text x="76" y="352" fill="white" font-size="124" font-family="Arial, sans-serif" opacity="0.92">${icon}</text>
+      <circle cx="640" cy="110" r="100" fill="rgba(255,255,255,0.12)" />
+      <circle cx="160" cy="390" r="120" fill="rgba(255,255,255,0.08)" />
+      <rect x="46" y="48" width="708" height="424" rx="26" fill="rgba(0,0,0,0.16)" stroke="rgba(255,255,255,0.18)" />
+      <text x="76" y="145" fill="white" font-size="32" font-family="Arial, sans-serif" opacity="0.9">${subtitle}</text>
+      <text x="76" y="250" fill="white" font-size="76" font-weight="700" font-family="Arial, sans-serif">${title}</text>
+      <text x="76" y="360" fill="white" font-size="122" font-family="Arial, sans-serif">${icon}</text>
     </svg>`;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-const AUTH_KEY = "gameverse-user";
-const COMMENT_KEY = "gameverse-comments";
-
 const games = [
   {
-    id: "galaxy-hunters",
-    name: "Galaxy Hunters",
-    genre: "动作射击",
-    rating: 4.8,
-    players: "1-4 人",
-    platform: "PC / 网页",
-    description: "高速反应射击挑战，真假目标混入。",
-    features: ["真假目标", "连击倍率", "误点扣分"],
-    image: createPoster({
-      title: "GALAXY HUNTERS",
-      subtitle: "Action Shooter",
-      palette: ["#071a52", "#1f4287", "#5be7ff"],
-      icon: "✦"
-    })
-  },
-  {
-    id: "crown-chess",
-    name: "Crown Chess",
-    genre: "策略战棋",
-    rating: 4.7,
-    players: "单人",
-    platform: "PC",
-    description: "高压博弈，需要读懂对手节奏。",
-    features: ["回合博弈", "资源管理", "多轮胜负"],
-    image: createPoster({
-      title: "CROWN CHESS",
-      subtitle: "Strategy",
-      palette: ["#3c2317", "#7b4f2c", "#d4a373"],
-      icon: "♜"
-    })
-  },
-  {
-    id: "neon-drift-x",
-    name: "Neon Drift X",
-    genre: "竞速",
-    rating: 4.6,
-    players: "1-8 人",
-    platform: "PC / 主机",
-    description: "加速与热量管理并存的竞速挑战。",
-    features: ["热量系统", "动态 AI", "冲刺节奏"],
-    image: createPoster({
-      title: "NEON DRIFT X",
-      subtitle: "Racing",
-      palette: ["#240046", "#7b2cbf", "#ff4d6d"],
-      icon: "⚡"
-    })
-  },
-  {
-    id: "dragon-fall",
-    name: "Dragon Fall",
-    genre: "角色扮演",
+    id: "star-sniper",
+    name: "Star Sniper",
+    genre: "�������",
     rating: 4.9,
-    players: "单人",
-    platform: "PC / 主机",
-    description: "生命、补给、压力三线并行的冒险。",
-    features: ["多状态冒险", "风险选择", "多结局"],
-    image: createPoster({
-      title: "DRAGON FALL",
-      subtitle: "RPG",
-      palette: ["#0b132b", "#1c2541", "#5bc0be"],
-      icon: "⚔"
-    })
+    players: "����",
+    platform: "��ҳ / PC",
+    description: "�� 20 �������о����ܶ��Ŀ�꣬�������������١�",
+    features: ["�ƶ��е�", "��ʱ�÷�", "�������н���"],
+    mode: "target",
+    image: createPoster({ title: "STAR SNIPER", subtitle: "Action Shooter", palette: ["#051937", "#004d7a", "#00bf72"], icon: "?" })
   },
   {
-    id: "mirror-mind",
-    name: "Mirror Mind",
-    genre: "解谜",
-    rating: 4.5,
-    players: "单人",
-    platform: "网页 / 手机",
-    description: "有限次数的 3 位密码推理。",
-    features: ["数字线索", "尝试限制", "位置反馈"],
-    image: createPoster({
-      title: "MIRROR MIND",
-      subtitle: "Puzzle",
-      palette: ["#355070", "#6d597a", "#b56576"],
-      icon: "◈"
-    })
+    id: "cipher-room",
+    name: "Cipher Room",
+    genre: "��������",
+    rating: 4.8,
+    players: "����",
+    platform: "��ҳ / �ֻ�",
+    description: "������ʾ�³��������룬�������ޣ�Խ��Խ���š�",
+    features: ["��������", "������ʾ", "���޳���"],
+    mode: "code",
+    image: createPoster({ title: "CIPHER ROOM", subtitle: "Puzzle Escape", palette: ["#2b2d42", "#5c677d", "#ef8354"], icon: "?" })
   },
   {
-    id: "harvest-town",
-    name: "Harvest Town",
-    genre: "模拟经营",
-    rating: 4.4,
-    players: "1-2 人",
-    platform: "PC / Switch",
-    description: "限回合资源经营与建造。",
-    features: ["资源链", "限回合", "断电失败"],
-    image: createPoster({
-      title: "HARVEST TOWN",
-      subtitle: "Sim",
-      palette: ["#386641", "#6a994e", "#f2e8cf"],
-      icon: "❀"
-    })
-  },
-  {
-    id: "orbit-base",
-    name: "Orbit Base",
-    genre: "生存建造",
-    rating: 4.6,
-    players: "1-6 人",
-    platform: "PC",
-    description: "空间站资源压力与建造挑战。",
-    features: ["高压资源", "阶段建造", "失败惩罚"],
-    image: createPoster({
-      title: "ORBIT BASE",
-      subtitle: "Build",
-      palette: ["#03045e", "#0077b6", "#90e0ef"],
-      icon: "⬢"
-    })
-  },
-  {
-    id: "arcane-deck",
-    name: "Arcane Deck",
-    genre: "卡牌对战",
-    rating: 4.3,
-    players: "1-2 人",
-    platform: "PC / 手机",
-    description: "蓄力与重击的回合对战。",
-    features: ["读心博弈", "爆发伤害", "防守反打"],
-    image: createPoster({
-      title: "ARCANE DECK",
-      subtitle: "Card Battle",
-      palette: ["#10002b", "#3c096c", "#c77dff"],
-      icon: "♠"
-    })
-  },
-  {
-    id: "mecha-cup",
-    name: "Mecha Cup",
-    genre: "体育竞技",
-    rating: 4.2,
-    players: "2-6 人",
-    platform: "PC / 主机",
-    description: "高速机甲球赛与过热惩罚。",
-    features: ["热量平衡", "高压对抗", "冲刺时机"],
-    image: createPoster({
-      title: "MECHA CUP",
-      subtitle: "Arena",
-      palette: ["#14213d", "#2d6a4f", "#fca311"],
-      icon: "◉"
-    })
-  },
-  {
-    id: "night-motel",
-    name: "Night Motel",
-    genre: "恐怖冒险",
-    rating: 4.5,
-    players: "单人",
-    platform: "PC",
-    description: "精神压力不断上升的恐怖逃生。",
-    features: ["压力系统", "路线选择", "多结局"],
-    image: createPoster({
-      title: "NIGHT MOTEL",
-      subtitle: "Horror",
-      palette: ["#111111", "#3a0f0f", "#9a031e"],
-      icon: "☾"
-    })
-  },
-  {
-    id: "pixel-quest",
-    name: "Pixel Quest",
-    genre: "像素冒险",
-    rating: 4.4,
-    players: "1-4 人",
-    platform: "网页 / PC",
-    description: "像素风多状态冒险。",
-    features: ["补给管理", "事件分支", "风险抉择"],
-    image: createPoster({
-      title: "PIXEL QUEST",
-      subtitle: "Pixel",
-      palette: ["#283618", "#606c38", "#dda15e"],
-      icon: "▣"
-    })
-  },
-  {
-    id: "sky-forge",
-    name: "Sky Forge",
-    genre: "沙盒创造",
+    id: "turbo-lane",
+    name: "Turbo Lane",
+    genre: "���پ���",
     rating: 4.7,
-    players: "1-10 人",
-    platform: "PC / 网页",
-    description: "空岛核心区限回合建造。",
-    features: ["多资源联动", "建筑顺序", "失败惩罚"],
-    image: createPoster({
-      title: "SKY FORGE",
-      subtitle: "Sandbox",
-      palette: ["#219ebc", "#8ecae6", "#ffb703"],
-      icon: "⬡"
-    })
+    players: "����",
+    platform: "��ҳ / PC",
+    description: "��������٣��͵��Ա�ƴ˭�ȳ���յ��ߡ�",
+    features: ["��̽���", "���Զ���", "�ֶ̾Կ�"],
+    mode: "race",
+    image: createPoster({ title: "TURBO LANE", subtitle: "Speed Race", palette: ["#10002b", "#7b2cbf", "#ff8500"], icon: "?" })
+  },
+  {
+    id: "memory-ruins",
+    name: "Memory Ruins",
+    genre: "������ս",
+    rating: 4.6,
+    players: "����",
+    platform: "��ҳ",
+    description: "�����ɶԷ��ţ�����Խ��Խ������",
+    features: ["�������", "����ͳ��", "һ��ͨ��"],
+    mode: "memory",
+    image: createPoster({ title: "MEMORY RUINS", subtitle: "Memory Trial", palette: ["#283618", "#606c38", "#dda15e"], icon: "?" })
+  },
+  {
+    id: "forge-keeper",
+    name: "Forge Keeper",
+    genre: "��Դ��Ӫ",
+    rating: 4.7,
+    players: "����",
+    platform: "��ҳ / PC",
+    description: "�����޻غ����ռ���Դ����ɺ��Ľ��졣",
+    features: ["��Դƽ��", "�غ�����", "����Ŀ��"],
+    mode: "builder",
+    image: createPoster({ title: "FORGE KEEPER", subtitle: "Builder", palette: ["#1d3557", "#457b9d", "#e9c46a"], icon: "?" })
+  },
+  {
+    id: "crown-duel",
+    name: "Crown Duel",
+    genre: "���Զ�ս",
+    rating: 4.8,
+    players: "����",
+    platform: "��ҳ / PC",
+    description: "ѡ�񹥻������ػ��������ȰѶ���Ѫ��ѹ���㡣",
+    features: ["��ȭʽ����", "��������", "�߷��վ���"],
+    mode: "duel",
+    image: createPoster({ title: "CROWN DUEL", subtitle: "Mind Battle", palette: ["#3c1642", "#086375", "#f4d35e"], icon: "?" })
+  },
+  {
+    id: "night-choice",
+    name: "Night Choice",
+    genre: "����ð��",
+    rating: 4.5,
+    players: "����",
+    platform: "��ҳ",
+    description: "��Σ���ķ���ҹ����������ѡ�񣬳ŵ�������",
+    features: ["���֧ѡ��", "����ѹ��", "����ж�"],
+    mode: "story",
+    image: createPoster({ title: "NIGHT CHOICE", subtitle: "Story Adventure", palette: ["#111827", "#1f2937", "#ef4444"], icon: "?" })
+  },
+  {
+    id: "signal-cards",
+    name: "Signal Cards",
+    genre: "��Ӧ�ж�",
+    rating: 4.6,
+    players: "����",
+    platform: "��ҳ / �ֻ�",
+    description: "�����ж����ſ��Ʒ��Ϲ���Խ������Խ���׳�����",
+    features: ["��Ӧ�ж�", "��ʤ�ӷ�", "����ѹ��"],
+    mode: "cards",
+    image: createPoster({ title: "SIGNAL CARDS", subtitle: "Reaction Test", palette: ["#001219", "#005f73", "#ee9b00"], icon: "?" })
   }
 ];
 
-const modeMap = {
-  "动作射击": "target",
-  "策略战棋": "duel",
-  "竞速": "race",
-  "角色扮演": "story",
-  "解谜": "riddle",
-  "模拟经营": "builder",
-  "生存建造": "builder",
-  "卡牌对战": "duel",
-  "体育竞技": "race",
-  "恐怖冒险": "story",
-  "像素冒险": "story",
-  "沙盒创造": "builder"
-};
-
-const $ = (s) => document.querySelector(s);
-
+const $ = (selector) => document.querySelector(selector);
 const els = {
   search: $("#search-input"),
   genre: $("#genre-filter"),
@@ -258,59 +146,52 @@ const els = {
   logout: $("#logout-button"),
   authClose: $("#auth-close"),
   authExit: $("#auth-exit"),
-  userName: $("#user-name-display")
+  userName: $("#user-name-display"),
+  zoomModal: $("#zoom-modal"),
+  zoomClose: $("#zoom-close"),
+  zoomExit: $("#zoom-exit"),
+  zoomImage: $("#zoom-image"),
+  zoomTitle: $("#zoom-title")
 };
 
 let activeGameId = null;
-let activeCleanup = null;
+let cleanup = null;
 
-function getUser() {
+const getUser = () => {
   try {
     return JSON.parse(localStorage.getItem(AUTH_KEY)) || null;
   } catch {
     return null;
   }
-}
+};
 
-function setUser(user) {
+const setUser = (user) => {
   if (user) {
     localStorage.setItem(AUTH_KEY, JSON.stringify(user));
   } else {
     localStorage.removeItem(AUTH_KEY);
   }
-}
+};
 
-function getComments() {
+const getComments = () => {
   try {
     return JSON.parse(localStorage.getItem(COMMENT_KEY)) || {};
   } catch {
     return {};
   }
-}
+};
 
-function saveComments(data) {
-  localStorage.setItem(COMMENT_KEY, JSON.stringify(data));
-}
-
-function commentsFor(gameId) {
-  return getComments()[gameId] || [];
-}
-
-function totalComments() {
-  return Object.values(getComments()).reduce((sum, list) => sum + list.length, 0);
-}
-
-function modeOf(game) {
-  return modeMap[game.genre] || "story";
-}
+const saveComments = (value) => localStorage.setItem(COMMENT_KEY, JSON.stringify(value));
+const commentsFor = (id) => getComments()[id] || [];
+const totalComments = () => Object.values(getComments()).reduce((sum, item) => sum + item.length, 0);
 
 function renderUser() {
   const user = getUser();
-  els.userName.textContent = user ? user.name : "游客";
-  els.login.textContent = user ? "账号管理" : "登录账号";
+  els.userName.textContent = user ? user.name : "�ο�";
+  els.login.textContent = user ? "�˺Ź���" : "��¼�˺�";
   els.authStatus.textContent = user
-    ? `已登录：${user.name}。评论会自动使用该昵称。`
-    : "未登录时将以游客身份浏览，评论时建议先登录。";
+    ? `�ѵ�¼��${user.name}�����ۻ��Զ�ʹ�ø��ǳơ�`
+    : "δ��¼ʱ�����ο��������������ʱ�����ȵ�¼��";
 }
 
 function openAuth() {
@@ -324,631 +205,695 @@ function closeAuth() {
   els.authModal.classList.add("hidden");
 }
 
-function filteredGames() {
-  const keyword = els.search.value.trim().toLowerCase();
-  const genre = els.genre.value;
-  const sort = els.sort.value;
-
-  const list = games.filter((game) => {
-    const text = `${game.name} ${game.genre} ${game.description}`.toLowerCase();
-    return text.includes(keyword) && (genre === "all" || game.genre === genre);
-  });
-
-  list.sort((a, b) => {
-    if (sort === "name") return a.name.localeCompare(b.name, "en");
-    if (sort === "players") return b.players.localeCompare(a.players, "zh-CN");
-    return b.rating - a.rating;
-  });
-
-  return list;
+function openZoom(src, title) {
+  els.zoomImage.src = src;
+  els.zoomTitle.textContent = title;
+  els.zoomModal.classList.remove("hidden");
 }
 
-function renderGames() {
-  const list = filteredGames();
-  els.gameCount.textContent = list.length;
-  els.commentCount.textContent = totalComments();
-
-  if (!list.length) {
-    els.grid.innerHTML = '<div class="empty-state">没有找到符合条件的游戏。</div>';
-    return;
-  }
-
-  els.grid.innerHTML = list.map((game) => `
-    <article class="game-card" data-id="${game.id}" tabindex="0">
-      <div class="game-banner">
-        <img class="cover-image" src="${game.image}" alt="${game.name} 封面图">
-        <div class="game-banner-content">
-          <div class="genre-chip">${game.genre}</div>
-          <h3>${game.name}</h3>
-        </div>
-      </div>
-      <div class="game-body">
-        <div class="game-topline">
-          <span class="rating-pill">${game.rating.toFixed(1)} / 5</span>
-          <span class="tag">${modeOf(game)}</span>
-        </div>
-        <p>${game.description}</p>
-        <div class="game-footer">
-          <span>${game.players}</span>
-          <span>${commentsFor(game.id).length} 条评论</span>
-        </div>
-        <div class="card-actions">
-          <button class="button primary play-now" data-id="${game.id}" type="button">开始游戏</button>
-          <button class="button ghost view-detail" data-id="${game.id}" type="button">查看详情</button>
-        </div>
-      </div>
-    </article>
-  `).join("");
-
-  document.querySelectorAll(".play-now").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openDetail(btn.dataset.id, true);
-    });
-  });
-
-  document.querySelectorAll(".view-detail").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openDetail(btn.dataset.id, false);
-    });
-  });
-
-  document.querySelectorAll(".game-card").forEach((card) => {
-    card.addEventListener("click", () => openDetail(card.dataset.id, false));
-  });
+function closeZoom() {
+  els.zoomModal.classList.add("hidden");
+  els.zoomImage.removeAttribute("src");
 }
 
-function renderCommentList(gameId) {
-  const listEl = $("#comment-list");
-  const countEl = $("#detail-comment-count");
-  const items = commentsFor(gameId);
-
-  countEl.textContent = `${items.length} 条`;
-
-  if (!items.length) {
-    listEl.innerHTML = '<div class="empty-state">还没有评论，来成为第一个发言的玩家吧。</div>';
-    return;
-  }
-
-  listEl.innerHTML = items.slice().reverse().map((item) => `
-    <article class="comment-item">
-      <div class="comment-meta">
-        <strong>${item.name}</strong>
-        <time>${item.date}</time>
-      </div>
-      <span class="rating-pill">${item.rating} 星</span>
-      <p>${item.text}</p>
-    </article>
-  `).join("");
+function updateStats() {
+  els.gameCount.textContent = String(games.length);
+  els.genreCount.textContent = String(new Set(games.map((game) => game.genre)).size);
+  els.commentCount.textContent = String(totalComments());
 }
 
-function bindCommentForm(gameId) {
-  const form = $("#comment-form");
-  const name = $("#comment-name");
-  const rating = $("#comment-rating");
-  const text = $("#comment-text");
-  const user = getUser();
-
-  name.readOnly = !!user;
-  name.value = user?.name || "";
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const payload = {
-      name: name.value.trim(),
-      rating: rating.value,
-      text: text.value.trim(),
-      date: new Date().toLocaleDateString("zh-CN")
-    };
-
-    if (!payload.name || !payload.rating || !payload.text) return;
-
-    const data = getComments();
-    data[gameId] = [...(data[gameId] || []), payload];
-    saveComments(data);
-    renderCommentList(gameId);
-    renderGames();
-    form.reset();
-    bindCommentForm(gameId);
-  }, { once: true });
-}
-
-function clearMiniGame() {
-  if (typeof activeCleanup === "function") {
-    activeCleanup();
-  }
-  activeCleanup = null;
-}
-
-function bindLaunch(game) {
-  $("#play-mode-label").textContent = `${modeOf(game)} 可玩模式`;
-  $("#launch-game").addEventListener("click", () => renderMiniGame(game, $("#game-stage")));
-}
-
-function openDetail(gameId, autoPlay = false) {
-  activeGameId = gameId;
-  const game = games.find((g) => g.id === gameId);
-  if (!game) return;
-
-  clearMiniGame();
-
-  const frag = els.tpl.content.cloneNode(true);
-  frag.querySelector("#detail-image").src = game.image;
-  frag.querySelector("#detail-image").alt = `${game.name} 封面图`;
-  frag.querySelector("#detail-genre").textContent = game.genre;
-  frag.querySelector("#detail-title").textContent = game.name;
-  frag.querySelector("#detail-description").textContent = game.description;
-  frag.querySelector("#detail-rating").textContent = `综合评分 ${game.rating.toFixed(1)}`;
-  frag.querySelector("#detail-players").textContent = `玩家数 ${game.players}`;
-  frag.querySelector("#detail-platform").textContent = `平台 ${game.platform}`;
-  frag.querySelector("#detail-features").innerHTML = game.features.map((f) => `<li>${f}</li>`).join("");
-
-  els.modalContent.innerHTML = "";
-  els.modalContent.append(frag);
-
-  renderCommentList(gameId);
-  bindCommentForm(gameId);
-  bindLaunch(game);
-
-  els.modal.classList.remove("hidden");
-
-  if (autoPlay) {
-    renderMiniGame(game, $("#game-stage"));
-  }
-}
-
-function closeDetail() {
-  activeGameId = null;
-  clearMiniGame();
-  els.modal.classList.add("hidden");
-}
-
-function renderMiniGame(game, stage) {
-  const mode = modeOf(game);
-  if (mode === "target") return renderTarget(stage);
-  if (mode === "race") return renderRace(stage);
-  if (mode === "duel") return renderDuel(stage);
-  if (mode === "riddle") return renderRiddle(stage);
-  return renderBuilder(stage);
-}
-
-function renderTarget(stage) {
-  stage.innerHTML = `
-    <div class="game-status">
-      <span>30 秒内点中蓝球得分，红球扣分</span>
-      <span id="score">得分 0</span>
-    </div>
-    <div class="game-status">
-      <span id="time">剩余 30 秒</span>
-      <button class="button ghost" id="restart" type="button">重开</button>
-    </div>
-    <div class="target-board" id="board"></div>
-  `;
-
-  const board = $("#board");
-  const scoreEl = $("#score");
-  const timeEl = $("#time");
-  const restart = $("#restart");
-
-  let score = 0;
-  let time = 30;
-  let spawnTimer = null;
-  let countTimer = null;
-
-  function spawn() {
-    board.innerHTML = "";
-    for (let i = 0; i < 4; i += 1) {
-      const bad = Math.random() < 0.35;
-      const target = document.createElement("button");
-      target.className = `target ${bad ? "bad" : "good"}`;
-      target.textContent = bad ? "-2" : "+1";
-      target.style.left = `${Math.random() * 260}px`;
-      target.style.top = `${Math.random() * 170}px`;
-      target.addEventListener("click", () => {
-        score = Math.max(0, score + (bad ? -2 : 1));
-        scoreEl.textContent = `得分 ${score}`;
-        spawn();
-      });
-      board.appendChild(target);
-    }
-  }
-
-  function start() {
-    score = 0;
-    time = 30;
-    scoreEl.textContent = "得分 0";
-    timeEl.textContent = "剩余 30 秒";
-    clearInterval(spawnTimer);
-    clearInterval(countTimer);
-    spawn();
-    spawnTimer = setInterval(spawn, 1400);
-    countTimer = setInterval(() => {
-      time -= 1;
-      timeEl.textContent = `剩余 ${time} 秒`;
-      if (time <= 0) {
-        clearInterval(spawnTimer);
-        clearInterval(countTimer);
-        board.innerHTML = `<div class="empty-stage">游戏结束<br>最终得分：${score}</div>`;
-      }
-    }, 1000);
-  }
-
-  restart.addEventListener("click", start);
-  start();
-
-  activeCleanup = () => {
-    clearInterval(spawnTimer);
-    clearInterval(countTimer);
-  };
-}
-
-function renderRace(stage) {
-  stage.innerHTML = `
-    <div class="instructions">加速会升热，冷却能降热，先到 100% 获胜。</div>
-    <div class="game-status">
-      <span id="yd">你的进度 0%</span>
-      <span id="ht">热量 0%</span>
-      <span id="ad">AI 进度 0%</span>
-    </div>
-    <div class="progress-bar"><div class="progress-fill" id="yb"></div></div>
-    <div class="progress-bar"><div class="progress-fill" id="ab"></div></div>
-    <div class="action-row">
-      <button class="button primary" id="boost" type="button">加速</button>
-      <button class="button secondary" id="cool" type="button">冷却</button>
-      <button class="button ghost" id="reset-race" type="button">重开</button>
-    </div>
-    <div class="score-box" id="result">准备开始。</div>
-  `;
-
-  const yd = $("#yd");
-  const ht = $("#ht");
-  const ad = $("#ad");
-  const yb = $("#yb");
-  const ab = $("#ab");
-  const result = $("#result");
-  const boost = $("#boost");
-  const cool = $("#cool");
-  const reset = $("#reset-race");
-
-  let you = 0;
-  let ai = 0;
-  let heat = 0;
-  let timer = null;
-  let done = false;
-
-  function paint() {
-    yb.style.width = `${you}%`;
-    ab.style.width = `${ai}%`;
-    yd.textContent = `你的进度 ${you}%`;
-    ad.textContent = `AI 进度 ${ai}%`;
-    ht.textContent = `热量 ${heat}%`;
-  }
-
-  function start() {
-    you = 0;
-    ai = 0;
-    heat = 0;
-    done = false;
-    result.textContent = "准备开始。";
-    paint();
-    clearInterval(timer);
-    timer = setInterval(() => {
-      if (done) return;
-      ai = Math.min(100, ai + 4 + Math.floor(Math.random() * 4));
-      heat = Math.max(0, heat - 3);
-      paint();
-      if (ai >= 100) {
-        done = true;
-        result.textContent = "AI 获胜";
-      }
-    }, 800);
-  }
-
-  boost.addEventListener("click", () => {
-    if (done) return;
-    heat = Math.min(100, heat + 18);
-    you = Math.min(100, you + (heat > 80 ? 2 : heat > 60 ? 5 : 9));
-    if (heat >= 100) {
-      heat = 55;
-      you = Math.max(0, you - 8);
-      result.textContent = "过热掉速";
-    }
-    paint();
-    if (you >= 100) {
-      done = true;
-      clearInterval(timer);
-      result.textContent = "你获胜";
-    }
-  });
-
-  cool.addEventListener("click", () => {
-    if (done) return;
-    heat = Math.max(0, heat - 22);
-    paint();
-  });
-
-  reset.addEventListener("click", start);
-  start();
-
-  activeCleanup = () => clearInterval(timer);
-}
-
-function renderDuel(stage) {
-  stage.innerHTML = `
-    <div class="instructions">6 回合内击败电脑。重击需要 2 点能量。</div>
-    <div class="game-status">
-      <span id="round">第 1 / 6 回合</span>
-      <span id="hp">你 18 : 电脑 18</span>
-      <span id="en">能量 1 : 电脑 1</span>
-    </div>
-    <div class="duel-actions">
-      <button class="duel-button" data-a="attack" type="button">进攻</button>
-      <button class="duel-button" data-a="guard" type="button">格挡</button>
-      <button class="duel-button" data-a="charge" type="button">蓄力</button>
-      <button class="duel-button" data-a="heavy" type="button">重击</button>
-    </div>
-    <div class="log-box" id="log">开始对战。</div>
-  `;
-
-  const round = $("#round");
-  const hp = $("#hp");
-  const en = $("#en");
-  const log = $("#log");
-
-  let playerHp = 18;
-  let enemyHp = 18;
-  let playerEn = 1;
-  let enemyEn = 1;
-  let turn = 1;
-
-  const text = {
-    attack: "进攻",
-    guard: "格挡",
-    charge: "蓄力",
-    heavy: "重击"
-  };
-
-  function update() {
-    round.textContent = `第 ${Math.min(turn, 6)} / 6 回合`;
-    hp.textContent = `你 ${playerHp} : 电脑 ${enemyHp}`;
-    en.textContent = `能量 ${playerEn} : 电脑 ${enemyEn}`;
-  }
-
-  document.querySelectorAll(".duel-button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const playerAction = btn.dataset.a;
-      if (turn > 6 || playerHp <= 0 || enemyHp <= 0) return;
-
-      if (playerAction === "heavy" && playerEn < 2) {
-        log.textContent = "重击至少需要 2 点能量。";
-        return;
-      }
-
-      const options = enemyEn >= 2
-        ? ["attack", "guard", "charge", "heavy"]
-        : ["attack", "guard", "charge"];
-      const enemyAction = options[Math.floor(Math.random() * options.length)];
-      const logs = [];
-
-      if (playerAction === "charge") playerEn += 1;
-      if (enemyAction === "charge") enemyEn += 1;
-
-      if (playerAction === "attack") {
-        const dmg = enemyAction === "guard" ? 1 : 3;
-        enemyHp -= dmg;
-        logs.push(`你造成 ${dmg} 点伤害`);
-      }
-
-      if (enemyAction === "attack") {
-        const dmg = playerAction === "guard" ? 1 : 3;
-        playerHp -= dmg;
-        logs.push(`电脑造成 ${dmg} 点伤害`);
-      }
-
-      if (playerAction === "heavy") {
-        const dmg = enemyAction === "guard" ? 2 : 6;
-        enemyHp -= dmg;
-        playerEn -= 2;
-        logs.push(`你的重击造成 ${dmg} 点伤害`);
-      }
-
-      if (enemyAction === "heavy") {
-        const dmg = playerAction === "guard" ? 2 : 6;
-        playerHp -= dmg;
-        enemyEn -= 2;
-        logs.push(`电脑重击造成 ${dmg} 点伤害`);
-      }
-
-      if (playerAction === "guard") playerEn = Math.min(3, playerEn + 1);
-      if (enemyAction === "guard") enemyEn = Math.min(3, enemyEn + 1);
-
-      turn += 1;
-      update();
-      log.textContent = `你选择${text[playerAction]}，电脑选择${text[enemyAction]}。${logs.join("，")}。`;
-
-      if (turn > 6 || playerHp <= 0 || enemyHp <= 0) {
-        log.textContent += playerHp === enemyHp ? " 平局。" : playerHp > enemyHp ? " 你获胜。" : " 电脑获胜。";
-      }
-    });
-  });
-
-  update();
-}
-
-function renderRiddle(stage) {
-  const bank = [
-    ["147", ["总和为 12", "第二位比第一位大 3", "第三位最大"]],
-    ["259", ["总和为 16", "第一位是偶数", "最后一位比第二位大 4"]],
-    ["368", ["总和为 17", "前两位差值 3", "最后一位不是奇数"]]
-  ];
-  const puzzle = bank[Math.floor(Math.random() * bank.length)];
-  let attempts = 5;
-
-  stage.innerHTML = `
-    <div class="instructions">根据线索破解 3 位密码，只有 5 次机会。</div>
-    <div class="code-panel">
-      <div>${puzzle[1].map((c) => `<div>${c}</div>`).join("")}</div>
-      <form id="rf" class="auth-form">
-        <input id="ri" type="text" maxlength="3" placeholder="输入 3 位数字" required>
-        <button class="button primary full" type="submit">提交猜测</button>
-      </form>
-      <div class="game-status">
-        <span id="ra">剩余次数 ${attempts}</span>
-        <span id="fb" class="status-pill">等待输入</span>
-      </div>
-      <div class="code-display" id="rh"></div>
-    </div>
-  `;
-
-  $("#rf").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const raw = $("#ri").value.trim();
-    if (!/^\d{3}$/.test(raw) || attempts <= 0) return;
-
-    let exact = 0;
-    let present = 0;
-
-    raw.split("").forEach((d, i) => {
-      if (d === puzzle[0][i]) exact += 1;
-      else if (puzzle[0].includes(d)) present += 1;
-    });
-
-    const item = document.createElement("span");
-    item.textContent = `${raw} | 对 ${exact} 位 / 错位 ${present} 位`;
-    $("#rh").appendChild(item);
-
-    attempts -= 1;
-    $("#ra").textContent = `剩余次数 ${attempts}`;
-
-    if (exact === 3) {
-      $("#fb").textContent = "破解成功";
-      $("#ri").disabled = true;
-      return;
-    }
-
-    $("#fb").textContent = `对 ${exact} 位，错位 ${present} 位`;
-
-    if (attempts === 0) {
-      $("#fb").textContent = `挑战失败，答案 ${puzzle[0]}`;
-      $("#ri").disabled = true;
-    }
-
-    $("#rf").reset();
-  });
-}
-
-function renderBuilder(stage) {
-  stage.innerHTML = `
-    <div class="instructions">6 回合内完成 4 次建造，能源见底直接失败。</div>
-    <div class="game-status">
-      <span id="br">回合 1 / 6</span>
-      <span id="bs">金属 2 · 能源 2</span>
-      <span id="bc">核心进度 0 / 4</span>
-    </div>
-    <div class="builder-actions">
-      <button class="builder-button" id="mine" type="button">采矿 +2 金属</button>
-      <button class="builder-button" id="power" type="button">发电 +2 能源</button>
-      <button class="builder-button" id="build" type="button">建造 -2 金属 -1 能源</button>
-    </div>
-    <div class="score-box" id="blog">开始经营。</div>
-  `;
-
-  const br = $("#br");
-  const bs = $("#bs");
-  const bc = $("#bc");
-  const blog = $("#blog");
-
-  let metal = 2;
-  let energy = 2;
-  let core = 0;
-  let round = 1;
-  let done = false;
-
-  function paint() {
-    br.textContent = `回合 ${Math.min(round, 6)} / 6`;
-    bs.textContent = `金属 ${metal} · 能源 ${energy}`;
-    bc.textContent = `核心进度 ${core} / 4`;
-  }
-
-  function endTurn() {
-    if (done) return;
-    energy -= 1;
-
-    if (energy < 0) {
-      done = true;
-      blog.textContent = "能源断档，挑战失败。";
-      paint();
-      return;
-    }
-
-    round += 1;
-    paint();
-
-    if (core >= 4) {
-      done = true;
-      blog.textContent = "你完成了基地建造，挑战成功。";
-      return;
-    }
-
-    if (round > 6) {
-      done = true;
-      blog.textContent = core >= 4 ? "挑战成功。" : "回合耗尽，挑战失败。";
-    }
-  }
-
-  $("#mine").addEventListener("click", () => {
-    if (done) return;
-    metal += 2;
-    blog.textContent = "你获得了金属。";
-    endTurn();
-  });
-
-  $("#power").addEventListener("click", () => {
-    if (done) return;
-    energy += 2;
-    blog.textContent = "你补充了能源。";
-    endTurn();
-  });
-
-  $("#build").addEventListener("click", () => {
-    if (done) return;
-    if (metal < 2 || energy < 1) {
-      blog.textContent = "资源不足。";
-      return;
-    }
-    metal -= 2;
-    energy -= 1;
-    core += 1;
-    blog.textContent = "你推进了建造进度。";
-    endTurn();
-  });
-
-  paint();
-}
-
-function initGenres() {
-  const genres = [...new Set(games.map((g) => g.genre))].sort((a, b) => a.localeCompare(b, "zh-CN"));
+function populateGenres() {
+  const genres = [...new Set(games.map((game) => game.genre))].sort((a, b) => a.localeCompare(b, "zh-CN"));
   genres.forEach((genre) => {
     const option = document.createElement("option");
     option.value = genre;
     option.textContent = genre;
     els.genre.append(option);
   });
-  els.genreCount.textContent = genres.length;
 }
 
-els.authForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const name = els.authName.value.trim();
-  const password = els.authPassword.value.trim();
+function filteredGames() {
+  const keyword = els.search.value.trim().toLowerCase();
+  const genre = els.genre.value;
+  const sort = els.sort.value;
+  let result = games.filter((game) => {
+    const hitKeyword =
+      !keyword ||
+      game.name.toLowerCase().includes(keyword) ||
+      game.genre.toLowerCase().includes(keyword) ||
+      game.description.toLowerCase().includes(keyword);
+    const hitGenre = genre === "all" || game.genre === genre;
+    return hitKeyword && hitGenre;
+  });
 
-  if (!name || password.length < 4) {
-    els.authStatus.textContent = "请输入昵称，并确保密码至少 4 位。";
+  result.sort((a, b) => {
+    if (sort === "name") return a.name.localeCompare(b.name, "en");
+    if (sort === "players") return a.players.localeCompare(b.players, "zh-CN");
+    return b.rating - a.rating;
+  });
+
+  return result;
+}
+
+function renderGames() {
+  const list = filteredGames();
+  if (!list.length) {
+    els.grid.innerHTML = '<div class="empty-state">û���ҵ�������������Ϸ�������ؼ������ԡ�</div>';
     return;
   }
 
+  els.grid.innerHTML = list.map((game) => `
+    <article class="game-card">
+      <div class="game-banner">
+        <img class="cover-image zoomable" src="${game.image}" alt="${game.name}" data-zoom-src="${game.image}" data-zoom-title="${game.name}">
+        <div class="game-banner-content">
+          <span class="genre-chip">${game.genre}</span>
+          <h3>${game.name}</h3>
+        </div>
+      </div>
+      <div class="game-body">
+        <div class="game-topline">
+          <span class="rating-pill">���� ${game.rating.toFixed(1)}</span>
+          <span class="tag">${game.platform}</span>
+        </div>
+        <p>${game.description}</p>
+        <div class="card-actions">
+          <button class="button primary" type="button" data-open="${game.id}">��ʼ��Ϸ</button>
+          <button class="button secondary" type="button" data-zoom-src="${game.image}" data-zoom-title="${game.name} ����">�Ŵ����</button>
+        </div>
+        <div class="game-footer">
+          <span>${game.players}</span>
+          <span>${commentsFor(game.id).length} ������</span>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderComments(gameId, root) {
+  const list = commentsFor(gameId);
+  root.querySelector("#detail-comment-count").textContent = `${list.length} ��`;
+  root.querySelector("#comment-list").innerHTML = list.length
+    ? list.map((item) => `
+      <article class="comment-item">
+        <div class="comment-meta">
+          <strong>${item.name}</strong>
+          <time>${item.time}</time>
+        </div>
+        <span class="rating-pill">${"��".repeat(item.rating)}</span>
+        <p>${item.text}</p>
+      </article>
+    `).join("")
+    : '<div class="empty-state">��û�����ۣ���������һ���ɡ�</div>';
+}
+
+function openGame(id) {
+  const game = games.find((item) => item.id === id);
+  if (!game) return;
+  activeGameId = id;
+  if (cleanup) cleanup();
+  cleanup = null;
+
+  const fragment = els.tpl.content.cloneNode(true);
+  const root = document.createElement("div");
+  root.append(fragment);
+
+  root.querySelector("#detail-image").src = game.image;
+  root.querySelector("#detail-image").alt = game.name;
+  root.querySelector("#detail-image").dataset.zoomSrc = game.image;
+  root.querySelector("#detail-image").dataset.zoomTitle = `${game.name} ����`;
+  root.querySelector("#detail-genre").textContent = game.genre;
+  root.querySelector("#detail-title").textContent = game.name;
+  root.querySelector("#detail-description").textContent = game.description;
+  root.querySelector("#detail-rating").textContent = `���� ${game.rating.toFixed(1)}`;
+  root.querySelector("#detail-players").textContent = game.players;
+  root.querySelector("#detail-platform").textContent = game.platform;
+  root.querySelector("#play-mode-label").textContent = `${game.genre} | վ�ڿ���ģʽ`;
+  root.querySelector("#detail-features").innerHTML = game.features.map((item) => `<li>${item}</li>`).join("");
+
+  const user = getUser();
+  const commentName = root.querySelector("#comment-name");
+  commentName.value = user?.name || "";
+  renderComments(game.id, root);
+
+  root.querySelector("#comment-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = commentName.value.trim() || "�ο�";
+    const rating = Number(root.querySelector("#comment-rating").value);
+    const text = root.querySelector("#comment-text").value.trim();
+    if (!rating || !text) return;
+
+    const comments = getComments();
+    comments[game.id] = comments[game.id] || [];
+    comments[game.id].unshift({
+      name,
+      rating,
+      text,
+      time: new Date().toLocaleString("zh-CN", { hour12: false })
+    });
+    saveComments(comments);
+    root.querySelector("#comment-text").value = "";
+    root.querySelector("#comment-rating").value = "";
+    renderComments(game.id, root);
+    updateStats();
+    renderGames();
+  });
+
+  root.querySelector("#launch-game").addEventListener("click", () => {
+    if (cleanup) cleanup();
+    cleanup = launchMode(game, root.querySelector("#game-stage"));
+  });
+
+  root.addEventListener("click", (event) => {
+    const target = event.target.closest("[data-zoom-src]");
+    if (target) openZoom(target.dataset.zoomSrc, target.dataset.zoomTitle || game.name);
+  });
+
+  els.modalContent.innerHTML = "";
+  els.modalContent.append(...root.childNodes);
+  els.modal.classList.remove("hidden");
+}
+
+function closeGame() {
+  els.modal.classList.add("hidden");
+  if (cleanup) cleanup();
+  cleanup = null;
+}
+
+function launchMode(game, stage) {
+  if (game.mode === "target") return playTarget(stage);
+  if (game.mode === "code") return playCode(stage);
+  if (game.mode === "race") return playRace(stage);
+  if (game.mode === "memory") return playMemory(stage);
+  if (game.mode === "builder") return playBuilder(stage);
+  if (game.mode === "duel") return playDuel(stage);
+  if (game.mode === "story") return playStory(stage);
+  return playCards(stage);
+}
+
+function playTarget(stage) {
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">�÷�<strong id="score">0</strong></span>
+        <span class="status-pill">ʱ��<strong id="timer">20</strong>s</span>
+      </div>
+      <div class="target-board" id="target-board"></div>
+      <div class="stage-note">�������ɫĿ��÷֣�20 �������</div>
+    </div>
+  `;
+  const board = stage.querySelector("#target-board");
+  const scoreNode = stage.querySelector("#score");
+  const timerNode = stage.querySelector("#timer");
+  let score = 0;
+  let timeLeft = 20;
+  let spawnTimer = 0;
+
+  const spawn = () => {
+    const dot = document.createElement("button");
+    dot.className = "target-dot";
+    dot.textContent = "+1";
+    dot.style.left = `${Math.random() * 78}%`;
+    dot.style.top = `${Math.random() * 72}%`;
+    dot.addEventListener("click", () => {
+      score += 1;
+      scoreNode.textContent = String(score);
+      dot.remove();
+    });
+    board.append(dot);
+    setTimeout(() => dot.remove(), 850);
+  };
+
+  spawn();
+  spawnTimer = window.setInterval(spawn, 700);
+  const clock = window.setInterval(() => {
+    timeLeft -= 1;
+    timerNode.textContent = String(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(clock);
+      clearInterval(spawnTimer);
+      board.innerHTML = `<div class="empty-stage">��ս�������������� ${score} ��Ŀ�ꡣ</div>`;
+    }
+  }, 1000);
+
+  return () => {
+    clearInterval(clock);
+    clearInterval(spawnTimer);
+  };
+}
+
+function playCode(stage) {
+  const answer = String(100 + Math.floor(Math.random() * 900));
+  let tries = 6;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="score-box">���򣺲�һ�� 3 λ���롣ÿ�λ�������м���������ȷ��λ����ȷ��</div>
+      <div class="stage-toolbar">
+        <input class="name-input" id="guess-input" maxlength="3" placeholder="���� 3 λ����">
+        <button class="button primary" id="guess-button" type="button">�ύ</button>
+      </div>
+      <div class="status-line">
+        <span class="status-pill">ʣ�����<strong id="tries">${tries}</strong></span>
+      </div>
+      <div class="log-box" id="guess-log">��ʼ�������롣</div>
+    </div>
+  `;
+  const input = stage.querySelector("#guess-input");
+  const log = stage.querySelector("#guess-log");
+  const triesNode = stage.querySelector("#tries");
+  const submit = () => {
+    const value = input.value.trim();
+    if (!/^\d{3}$/.test(value) || tries <= 0) return;
+    tries -= 1;
+    let exact = 0;
+    [...value].forEach((n, index) => {
+      if (answer[index] === n) exact += 1;
+    });
+    if (value === answer) {
+      log.innerHTML = `<strong>�ƽ�ɹ���</strong>������� ${answer}��`;
+      tries = 0;
+    } else if (tries === 0) {
+      log.innerHTML += `<br>���һ��ʧ�ܣ���ȷ������ ${answer}��`;
+    } else {
+      log.innerHTML += `<br>${value}��λ����ȫ��ȷ ${exact} ����`;
+    }
+    triesNode.textContent = String(tries);
+    input.value = "";
+  };
+  stage.querySelector("#guess-button").addEventListener("click", submit);
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") submit();
+  });
+  return () => {};
+}
+
+function playRace(stage) {
+  let player = 0;
+  let cpu = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="run-track">
+        <span>��</span>
+        <div class="runner-bar"><div class="runner-fill" id="player-fill"></div></div>
+      </div>
+      <div class="run-track">
+        <span>����</span>
+        <div class="runner-bar"><div class="runner-fill" id="cpu-fill"></div></div>
+      </div>
+      <div class="stage-toolbar">
+        <button class="button primary" id="boost-button" type="button">�͵����</button>
+        <span class="stage-note" id="race-status">�ȵ� 100% ��ʤ��</span>
+      </div>
+    </div>
+  `;
+  const playerFill = stage.querySelector("#player-fill");
+  const cpuFill = stage.querySelector("#cpu-fill");
+  const status = stage.querySelector("#race-status");
+  const button = stage.querySelector("#boost-button");
+  const tick = window.setInterval(() => {
+    cpu = Math.min(100, cpu + 3 + Math.floor(Math.random() * 5));
+    cpuFill.style.width = `${cpu}%`;
+    if (cpu >= 100) {
+      status.textContent = "�������ȳ��ߣ�����һ�ְɡ�";
+      clearInterval(tick);
+      button.disabled = true;
+    }
+  }, 700);
+  button.addEventListener("click", () => {
+    if (player >= 100 || cpu >= 100) return;
+    player = Math.min(100, player + 8);
+    playerFill.style.width = `${player}%`;
+    if (player >= 100) {
+      status.textContent = "��Ӯ�����ⳡ��̡�";
+      clearInterval(tick);
+      button.disabled = true;
+    }
+  });
+  return () => clearInterval(tick);
+}
+
+function playMemory(stage) {
+  const symbols = ["��", "��", "��", "��", "��", "?"];
+  const deck = [...symbols, ...symbols].sort(() => Math.random() - 0.5);
+  let opened = [];
+  let matched = 0;
+  let moves = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">����<strong id="moves">0</strong></span>
+        <span class="status-pill">���<strong id="matched">0</strong>/6</span>
+      </div>
+      <div class="memory-grid" id="memory-grid"></div>
+    </div>
+  `;
+  const grid = stage.querySelector("#memory-grid");
+  const movesNode = stage.querySelector("#moves");
+  const matchedNode = stage.querySelector("#matched");
+  deck.forEach((symbol, index) => {
+    const button = document.createElement("button");
+    button.className = "memory-card";
+    button.dataset.index = String(index);
+    button.dataset.symbol = symbol;
+    button.textContent = "?";
+    grid.append(button);
+  });
+
+  const reveal = (button) => {
+    button.textContent = button.dataset.symbol;
+    button.classList.add("open");
+  };
+
+  const hide = (button) => {
+    button.textContent = "?";
+    button.classList.remove("open");
+  };
+
+  grid.addEventListener("click", (event) => {
+    const button = event.target.closest(".memory-card");
+    if (!button || button.classList.contains("open") || button.classList.contains("done") || opened.length === 2) return;
+    reveal(button);
+    opened.push(button);
+    if (opened.length === 2) {
+      moves += 1;
+      movesNode.textContent = String(moves);
+      const [a, b] = opened;
+      if (a.dataset.symbol === b.dataset.symbol) {
+        a.classList.add("done");
+        b.classList.add("done");
+        opened = [];
+        matched += 1;
+        matchedNode.textContent = String(matched);
+        if (matched === symbols.length) {
+          grid.insertAdjacentHTML("beforeend", '<div class="empty-stage">ȫ����Գɹ���</div>');
+        }
+      } else {
+        window.setTimeout(() => {
+          hide(a);
+          hide(b);
+          opened = [];
+        }, 600);
+      }
+    }
+  });
+  return () => {};
+}
+
+function playBuilder(stage) {
+  let turn = 8;
+  let ore = 0;
+  let power = 0;
+  let core = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">�غ�<strong id="turn">${turn}</strong></span>
+        <span class="status-pill">����<strong id="core">${core}</strong>/3</span>
+      </div>
+      <div class="resource-grid">
+        <div class="resource-card score-box">��ʯ<strong id="ore">${ore}</strong></div>
+        <div class="resource-card score-box">����<strong id="power">${power}</strong></div>
+        <div class="resource-card score-box">���Ķ���<strong id="built">${core}</strong></div>
+      </div>
+      <div class="stage-toolbar">
+        <button class="resource-button" id="mine-button" type="button">�ɿ� +2</button>
+        <button class="resource-button" id="charge-button" type="button">���� +2</button>
+        <button class="resource-button" id="build-button" type="button">�������</button>
+      </div>
+      <div class="log-box" id="builder-log">8 �غ������ 3 �κ��ļ���ͨ�ء�</div>
+    </div>
+  `;
+  const update = (text) => {
+    stage.querySelector("#turn").textContent = String(turn);
+    stage.querySelector("#ore").textContent = String(ore);
+    stage.querySelector("#power").textContent = String(power);
+    stage.querySelector("#core").textContent = String(core);
+    stage.querySelector("#built").textContent = String(core);
+    stage.querySelector("#builder-log").textContent = text;
+    if (turn <= 0 && core < 3) {
+      stage.querySelector("#builder-log").textContent = "ʱ��ľ������Ľ���ʧ�ܡ�";
+      disable();
+    }
+    if (core >= 3) {
+      stage.querySelector("#builder-log").textContent = "����ɹ�������ס�˻��ء�";
+      disable();
+    }
+  };
+  const disable = () => {
+    stage.querySelectorAll(".resource-button").forEach((button) => {
+      button.disabled = true;
+    });
+  };
+  const spendTurn = () => {
+    turn -= 1;
+  };
+  stage.querySelector("#mine-button").addEventListener("click", () => {
+    spendTurn();
+    ore += 2;
+    update("��ʯ���������");
+  });
+  stage.querySelector("#charge-button").addEventListener("click", () => {
+    spendTurn();
+    power += 2;
+    update("����ϵͳ������ɡ�");
+  });
+  stage.querySelector("#build-button").addEventListener("click", () => {
+    spendTurn();
+    if (ore >= 2 && power >= 2) {
+      ore -= 2;
+      power -= 2;
+      core += 1;
+      update("�ɹ�����һ�κ��ġ�");
+    } else {
+      update("��Դ���㣬�޷����졣");
+    }
+  });
+  return () => {};
+}
+
+function playDuel(stage) {
+  let playerHp = 12;
+  let cpuHp = 12;
+  let charge = 0;
+  let cpuCharge = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">�������<strong id="player-hp">${playerHp}</strong></span>
+        <span class="status-pill">��������<strong id="cpu-hp">${cpuHp}</strong></span>
+      </div>
+      <div class="duel-grid">
+        <button class="duel-option" data-act="attack" type="button">���� 3 ��</button>
+        <button class="duel-option" data-act="guard" type="button">���ؼ���</button>
+        <button class="duel-option" data-act="charge" type="button">�����ػ�</button>
+        <button class="duel-option" data-act="burst" type="button">�������� 2 ������</button>
+      </div>
+      <div class="log-box" id="duel-log">ѡ����Ļغ϶�����</div>
+    </div>
+  `;
+  const log = stage.querySelector("#duel-log");
+  const buttons = stage.querySelectorAll(".duel-option");
+  const update = () => {
+    stage.querySelector("#player-hp").textContent = String(playerHp);
+    stage.querySelector("#cpu-hp").textContent = String(cpuHp);
+    if (playerHp <= 0 || cpuHp <= 0) {
+      buttons.forEach((button) => {
+        button.disabled = true;
+      });
+      log.textContent = cpuHp <= 0 ? "��Ӯ�����ⳡ���ھ�����" : "�㱻���ֻ����ˡ�";
+    }
+  };
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (playerHp <= 0 || cpuHp <= 0) return;
+      const cpuActs = ["attack", "guard", "charge", cpuCharge >= 2 ? "burst" : "attack"];
+      const cpuAct = cpuActs[Math.floor(Math.random() * cpuActs.length)];
+      const act = button.dataset.act;
+      let playerDamage = 0;
+      let cpuDamage = 0;
+
+      if (act === "charge") charge += 1;
+      if (cpuAct === "charge") cpuCharge += 1;
+      if (act === "attack") cpuDamage += 3;
+      if (cpuAct === "attack") playerDamage += 3;
+      if (act === "burst" && charge >= 2) {
+        cpuDamage += 6;
+        charge -= 2;
+      }
+      if (cpuAct === "burst" && cpuCharge >= 2) {
+        playerDamage += 6;
+        cpuCharge -= 2;
+      }
+      if (act === "guard") playerDamage = Math.max(0, playerDamage - 2);
+      if (cpuAct === "guard") cpuDamage = Math.max(0, cpuDamage - 2);
+
+      playerHp -= playerDamage;
+      cpuHp -= cpuDamage;
+      log.textContent = `��ѡ�� ${labelForAct(act)}������ѡ�� ${labelForAct(cpuAct)}��`;
+      update();
+    });
+  });
+  return () => {};
+}
+
+function labelForAct(act) {
+  if (act === "attack") return "����";
+  if (act === "guard") return "����";
+  if (act === "charge") return "����";
+  return "����";
+}
+
+function playStory(stage) {
+  const scenes = [
+    {
+      text: "����ͣ����ù����������洫����������",
+      options: [
+        { label: "���̿���", hp: -3, next: "����û�ˣ����㱻���š����� -3��" },
+        { label: "�����ֵ�", hp: 0, next: "���ҵ��ֵ磬�������ȡ�" }
+      ]
+    },
+    {
+      text: "���Ⱦ�ͷ��������Ħ������",
+      options: [
+        { label: "�������", hp: -2, next: "��ˤ�����ˣ����� -2��" },
+        { label: "�������۲�", hp: 0, next: "��ܿ���Σ�ա�" }
+      ]
+    },
+    {
+      text: "������ˣ������Һ�¥��������ͨ��ȫ����",
+      options: [
+        { label: "ȥ������", hp: -2, next: "·���գ�����Ӳ�Ź����ˡ����� -2��" },
+        { label: "ȥ¥��", hp: 0, next: "��ȵ��˾�Ԯ�ƹ⡣" }
+      ]
+    }
+  ];
+  let hp = 8;
+  let index = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">����<strong id="story-hp">${hp}</strong></span>
+      </div>
+      <div class="score-box" id="story-text"></div>
+      <div class="story-grid" id="story-options"></div>
+    </div>
+  `;
+  const text = stage.querySelector("#story-text");
+  const options = stage.querySelector("#story-options");
+  const hpNode = stage.querySelector("#story-hp");
+
+  const render = () => {
+    if (hp <= 0) {
+      text.textContent = "��û�ܳŵ���������սʧ�ܡ�";
+      options.innerHTML = "";
+      return;
+    }
+    if (index >= scenes.length) {
+      text.textContent = "��ɹ��ŵ������������������";
+      options.innerHTML = "";
+      return;
+    }
+    const scene = scenes[index];
+    text.textContent = scene.text;
+    options.innerHTML = scene.options.map((option, optionIndex) => `
+      <button class="story-option" data-index="${optionIndex}" type="button">${option.label}</button>
+    `).join("");
+    options.querySelectorAll(".story-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        const picked = scene.options[Number(button.dataset.index)];
+        hp += picked.hp;
+        hpNode.textContent = String(hp);
+        text.textContent = picked.next;
+        index += 1;
+        window.setTimeout(render, 650);
+      });
+    });
+  };
+
+  render();
+  return () => {};
+}
+
+function playCards(stage) {
+  let score = 0;
+  let round = 0;
+  stage.innerHTML = `
+    <div class="play-stage">
+      <div class="status-line">
+        <span class="status-pill">�÷�<strong id="card-score">${score}</strong></span>
+        <span class="status-pill">�غ�<strong id="card-round">${round}</strong>/6</span>
+      </div>
+      <div class="score-box" id="card-rule">�ҳ���������󡱵Ŀ��ơ�</div>
+      <div class="card-row" id="card-row"></div>
+    </div>
+  `;
+  const scoreNode = stage.querySelector("#card-score");
+  const roundNode = stage.querySelector("#card-round");
+  const row = stage.querySelector("#card-row");
+  const ruleNode = stage.querySelector("#card-rule");
+  const rules = [
+    { text: "�ҳ��������Ŀ��ơ�", pick: (cards) => cards.indexOf(Math.max(...cards)) },
+    { text: "�ҳ�Ψһ��ż�����ơ�", pick: (cards) => cards.findIndex((n) => n % 2 === 0) },
+    { text: "�ҳ���ӽ� 10 �Ŀ��ơ�", pick: (cards) => cards.indexOf(cards.slice().sort((a, b) => Math.abs(a - 10) - Math.abs(b - 10))[0]) }
+  ];
+
+  const nextRound = () => {
+    if (round >= 6) {
+      row.innerHTML = `<div class="empty-stage">��ս���������յ÷� ${score}��</div>`;
+      ruleNode.textContent = "��������ɡ�";
+      return;
+    }
+    round += 1;
+    roundNode.textContent = String(round);
+    const cards = Array.from({ length: 3 }, () => 1 + Math.floor(Math.random() * 13));
+    const rule = rules[(round - 1) % rules.length];
+    const answer = rule.pick(cards);
+    ruleNode.textContent = rule.text;
+    row.innerHTML = cards.map((card, index) => `
+      <button class="card-button" data-index="${index}" type="button">���� ${card}</button>
+    `).join("");
+    row.querySelectorAll(".card-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (Number(button.dataset.index) === answer) score += 1;
+        scoreNode.textContent = String(score);
+        nextRound();
+      });
+    });
+  };
+
+  nextRound();
+  return () => {};
+}
+
+els.search.addEventListener("input", renderGames);
+els.genre.addEventListener("change", renderGames);
+els.sort.addEventListener("change", renderGames);
+
+els.grid.addEventListener("click", (event) => {
+  const openTarget = event.target.closest("[data-open]");
+  if (openTarget) openGame(openTarget.dataset.open);
+  const zoomTarget = event.target.closest("[data-zoom-src]");
+  if (zoomTarget) openZoom(zoomTarget.dataset.zoomSrc, zoomTarget.dataset.zoomTitle || "����");
+});
+
+els.random.addEventListener("click", () => {
+  const randomGame = games[Math.floor(Math.random() * games.length)];
+  openGame(randomGame.id);
+});
+
+els.modalClose.addEventListener("click", closeGame);
+els.modalExit.addEventListener("click", closeGame);
+els.authClose.addEventListener("click", closeAuth);
+els.authExit.addEventListener("click", closeAuth);
+els.zoomClose.addEventListener("click", closeZoom);
+els.zoomExit.addEventListener("click", closeZoom);
+els.login.addEventListener("click", openAuth);
+
+els.authForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = els.authName.value.trim();
+  const password = els.authPassword.value.trim();
+  if (!name || password.length < 4) return;
   setUser({ name, password });
   renderUser();
   closeAuth();
@@ -957,27 +902,23 @@ els.authForm.addEventListener("submit", (e) => {
 els.logout.addEventListener("click", () => {
   setUser(null);
   renderUser();
-  els.authStatus.textContent = "你已退出登录。";
+  els.authName.value = "";
+  els.authPassword.value = "";
 });
 
-els.login.addEventListener("click", openAuth);
-els.authClose.addEventListener("click", closeAuth);
-els.authExit.addEventListener("click", closeAuth);
-els.search.addEventListener("input", renderGames);
-els.genre.addEventListener("change", renderGames);
-els.sort.addEventListener("change", renderGames);
-els.random.addEventListener("click", () => {
-  const list = filteredGames();
-  if (!list.length) return;
-  openDetail(list[Math.floor(Math.random() * list.length)].id, true);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeZoom();
+    closeAuth();
+    closeGame();
+  }
 });
-els.modalClose.addEventListener("click", closeDetail);
-els.modalExit.addEventListener("click", closeDetail);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    if (activeGameId) closeDetail();
-    if (!els.authModal.classList.contains("hidden")) closeAuth();
+populateGenres();
+renderUser();
+updateStats();
+renderGames();
+
   }
 });
 
