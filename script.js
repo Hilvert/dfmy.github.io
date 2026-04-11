@@ -918,3 +918,7 @@ populateGenres();
 renderUser();
 updateStats();
 renderGames();
+
+renderUser();
+updateStats();
+renderGames();
