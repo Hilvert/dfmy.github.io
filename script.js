@@ -27,98 +27,98 @@ const games = [
   {
     id: "star-sniper",
     name: "Star Sniper",
-    genre: "�������",
+    genre: "动作射击",
     rating: 4.9,
-    players: "����",
-    platform: "��ҳ / PC",
-    description: "�� 20 �������о����ܶ��Ŀ�꣬�������������١�",
-    features: ["�ƶ��е�", "��ʱ�÷�", "�������н���"],
+    players: "单人",
+    platform: "网页 / PC",
+    description: "在 20 秒内命中尽可能多的目标，考验眼力和手速。",
+    features: ["移动靶点", "限时得分", "连续命中奖励"],
     mode: "target",
-    image: createPoster({ title: "STAR SNIPER", subtitle: "Action Shooter", palette: ["#051937", "#004d7a", "#00bf72"], icon: "?" })
+    image: createPoster({ title: "STAR SNIPER", subtitle: "Action Shooter", palette: ["#051937", "#004d7a", "#00bf72"], icon: "A" })
   },
   {
     id: "cipher-room",
     name: "Cipher Room",
-    genre: "��������",
+    genre: "解谜密室",
     rating: 4.8,
-    players: "����",
-    platform: "��ҳ / �ֻ�",
-    description: "������ʾ�³��������룬�������ޣ�Խ��Խ���š�",
-    features: ["��������", "������ʾ", "���޳���"],
+    players: "单人",
+    platform: "网页 / 手机",
+    description: "根据提示猜出隐藏密码，次数有限，越猜越紧张。",
+    features: ["数字推理", "反馈提示", "有限尝试"],
     mode: "code",
-    image: createPoster({ title: "CIPHER ROOM", subtitle: "Puzzle Escape", palette: ["#2b2d42", "#5c677d", "#ef8354"], icon: "?" })
+    image: createPoster({ title: "CIPHER ROOM", subtitle: "Puzzle Escape", palette: ["#2b2d42", "#5c677d", "#ef8354"], icon: "A" })
   },
   {
     id: "turbo-lane",
     name: "Turbo Lane",
-    genre: "���پ���",
+    genre: "极速竞赛",
     rating: 4.7,
-    players: "����",
-    platform: "��ҳ / PC",
-    description: "��������٣��͵��Ա�ƴ˭�ȳ���յ��ߡ�",
-    features: ["��̽���", "���Զ���", "�ֶ̾Կ�"],
+    players: "单人",
+    platform: "网页 / PC",
+    description: "疯狂点击加速，和电脑比拼谁先冲过终点线。",
+    features: ["冲刺节奏", "电脑对手", "短局对抗"],
     mode: "race",
-    image: createPoster({ title: "TURBO LANE", subtitle: "Speed Race", palette: ["#10002b", "#7b2cbf", "#ff8500"], icon: "?" })
+    image: createPoster({ title: "TURBO LANE", subtitle: "Speed Race", palette: ["#10002b", "#7b2cbf", "#ff8500"], icon: "A" })
   },
   {
     id: "memory-ruins",
     name: "Memory Ruins",
-    genre: "������ս",
+    genre: "记忆挑战",
     rating: 4.6,
-    players: "����",
-    platform: "��ҳ",
-    description: "�����ɶԷ��ţ�����Խ��Խ������",
-    features: ["�������", "����ͳ��", "һ��ͨ��"],
+    players: "单人",
+    platform: "网页",
+    description: "翻出成对符号，步数越少越厉害。",
+    features: ["记忆配对", "步数统计", "一局通关"],
     mode: "memory",
-    image: createPoster({ title: "MEMORY RUINS", subtitle: "Memory Trial", palette: ["#283618", "#606c38", "#dda15e"], icon: "?" })
+    image: createPoster({ title: "MEMORY RUINS", subtitle: "Memory Trial", palette: ["#283618", "#606c38", "#dda15e"], icon: "A" })
   },
   {
     id: "forge-keeper",
     name: "Forge Keeper",
-    genre: "��Դ��Ӫ",
+    genre: "资源经营",
     rating: 4.7,
-    players: "����",
-    platform: "��ҳ / PC",
-    description: "�����޻غ����ռ���Դ����ɺ��Ľ��졣",
-    features: ["��Դƽ��", "�غ�����", "����Ŀ��"],
+    players: "单人",
+    platform: "网页 / PC",
+    description: "在有限回合内收集资源并完成核心建造。",
+    features: ["资源平衡", "回合限制", "建造目标"],
     mode: "builder",
-    image: createPoster({ title: "FORGE KEEPER", subtitle: "Builder", palette: ["#1d3557", "#457b9d", "#e9c46a"], icon: "?" })
+    image: createPoster({ title: "FORGE KEEPER", subtitle: "Builder", palette: ["#1d3557", "#457b9d", "#e9c46a"], icon: "A" })
   },
   {
     id: "crown-duel",
     name: "Crown Duel",
-    genre: "���Զ�ս",
+    genre: "策略对战",
     rating: 4.8,
-    players: "����",
-    platform: "��ҳ / PC",
-    description: "ѡ�񹥻������ػ��������ȰѶ���Ѫ��ѹ���㡣",
-    features: ["��ȭʽ����", "��������", "�߷��վ���"],
+    players: "单人",
+    platform: "网页 / PC",
+    description: "选择攻击、防守或蓄力，先把对手血量压到零。",
+    features: ["猜拳式博弈", "蓄力反打", "高风险决策"],
     mode: "duel",
-    image: createPoster({ title: "CROWN DUEL", subtitle: "Mind Battle", palette: ["#3c1642", "#086375", "#f4d35e"], icon: "?" })
+    image: createPoster({ title: "CROWN DUEL", subtitle: "Mind Battle", palette: ["#3c1642", "#086375", "#f4d35e"], icon: "A" })
   },
   {
     id: "night-choice",
     name: "Night Choice",
-    genre: "����ð��",
+    genre: "剧情冒险",
     rating: 4.5,
-    players: "����",
-    platform: "��ҳ",
-    description: "��Σ���ķ���ҹ����������ѡ�񣬳ŵ�������",
-    features: ["���֧ѡ��", "����ѹ��", "����ж�"],
+    players: "单人",
+    platform: "网页",
+    description: "在危机四伏的夜晚连续做出选择，撑到黎明。",
+    features: ["多分支选择", "生命压力", "结局判定"],
     mode: "story",
-    image: createPoster({ title: "NIGHT CHOICE", subtitle: "Story Adventure", palette: ["#111827", "#1f2937", "#ef4444"], icon: "?" })
+    image: createPoster({ title: "NIGHT CHOICE", subtitle: "Story Adventure", palette: ["#111827", "#1f2937", "#ef4444"], icon: "A" })
   },
   {
     id: "signal-cards",
     name: "Signal Cards",
-    genre: "��Ӧ�ж�",
+    genre: "反应判断",
     rating: 4.6,
-    players: "����",
-    platform: "��ҳ / �ֻ�",
-    description: "�����ж����ſ��Ʒ��Ϲ���Խ������Խ���׳�����",
-    features: ["��Ӧ�ж�", "��ʤ�ӷ�", "����ѹ��"],
+    players: "单人",
+    platform: "网页 / 手机",
+    description: "快速判断哪张卡牌符合规则，越到后面越容易出错。",
+    features: ["反应判断", "连胜加分", "节奏压迫"],
     mode: "cards",
-    image: createPoster({ title: "SIGNAL CARDS", subtitle: "Reaction Test", palette: ["#001219", "#005f73", "#ee9b00"], icon: "?" })
+    image: createPoster({ title: "SIGNAL CARDS", subtitle: "Reaction Test", palette: ["#001219", "#005f73", "#ee9b00"], icon: "A" })
   }
 ];
 
@@ -187,11 +187,11 @@ const totalComments = () => Object.values(getComments()).reduce((sum, item) => s
 
 function renderUser() {
   const user = getUser();
-  els.userName.textContent = user ? user.name : "�ο�";
-  els.login.textContent = user ? "�˺Ź���" : "��¼�˺�";
+  els.userName.textContent = user ? user.name : "游客";
+  els.login.textContent = user ? "账号管理" : "登录账号";
   els.authStatus.textContent = user
-    ? `�ѵ�¼��${user.name}�����ۻ��Զ�ʹ�ø��ǳơ�`
-    : "δ��¼ʱ�����ο��������������ʱ�����ȵ�¼��";
+    ? `已登录：${user.name}。评论会自动使用该昵称。`
+    : "未登录时将以游客身份浏览，评论时建议先登录。";
 }
 
 function openAuth() {
@@ -258,7 +258,7 @@ function filteredGames() {
 function renderGames() {
   const list = filteredGames();
   if (!list.length) {
-    els.grid.innerHTML = '<div class="empty-state">û���ҵ�������������Ϸ�������ؼ������ԡ�</div>';
+    els.grid.innerHTML = '<div class="empty-state">没有找到符合条件的游戏，换个关键词试试。</div>';
     return;
   }
 
@@ -273,17 +273,17 @@ function renderGames() {
       </div>
       <div class="game-body">
         <div class="game-topline">
-          <span class="rating-pill">���� ${game.rating.toFixed(1)}</span>
+          <span class="rating-pill">评分 ${game.rating.toFixed(1)}</span>
           <span class="tag">${game.platform}</span>
         </div>
         <p>${game.description}</p>
         <div class="card-actions">
-          <button class="button primary" type="button" data-open="${game.id}">��ʼ��Ϸ</button>
-          <button class="button secondary" type="button" data-zoom-src="${game.image}" data-zoom-title="${game.name} ����">�Ŵ����</button>
+          <button class="button primary" type="button" data-open="${game.id}">开始游戏</button>
+          <button class="button secondary" type="button" data-zoom-src="${game.image}" data-zoom-title="${game.name} 封面">放大封面</button>
         </div>
         <div class="game-footer">
           <span>${game.players}</span>
-          <span>${commentsFor(game.id).length} ������</span>
+          <span>${commentsFor(game.id).length} 条评论</span>
         </div>
       </div>
     </article>
@@ -292,7 +292,7 @@ function renderGames() {
 
 function renderComments(gameId, root) {
   const list = commentsFor(gameId);
-  root.querySelector("#detail-comment-count").textContent = `${list.length} ��`;
+  root.querySelector("#detail-comment-count").textContent = `${list.length} 条`;
   root.querySelector("#comment-list").innerHTML = list.length
     ? list.map((item) => `
       <article class="comment-item">
@@ -300,11 +300,11 @@ function renderComments(gameId, root) {
           <strong>${item.name}</strong>
           <time>${item.time}</time>
         </div>
-        <span class="rating-pill">${"��".repeat(item.rating)}</span>
+        <span class="rating-pill">${"★".repeat(item.rating)}</span>
         <p>${item.text}</p>
       </article>
     `).join("")
-    : '<div class="empty-state">��û�����ۣ���������һ���ɡ�</div>';
+    : '<div class="empty-state">还没有评论，来发布第一条吧。</div>';
 }
 
 function openGame(id) {
@@ -321,14 +321,14 @@ function openGame(id) {
   root.querySelector("#detail-image").src = game.image;
   root.querySelector("#detail-image").alt = game.name;
   root.querySelector("#detail-image").dataset.zoomSrc = game.image;
-  root.querySelector("#detail-image").dataset.zoomTitle = `${game.name} ����`;
+  root.querySelector("#detail-image").dataset.zoomTitle = `${game.name} 封面`;
   root.querySelector("#detail-genre").textContent = game.genre;
   root.querySelector("#detail-title").textContent = game.name;
   root.querySelector("#detail-description").textContent = game.description;
-  root.querySelector("#detail-rating").textContent = `���� ${game.rating.toFixed(1)}`;
+  root.querySelector("#detail-rating").textContent = `评分 ${game.rating.toFixed(1)}`;
   root.querySelector("#detail-players").textContent = game.players;
   root.querySelector("#detail-platform").textContent = game.platform;
-  root.querySelector("#play-mode-label").textContent = `${game.genre} | վ�ڿ���ģʽ`;
+  root.querySelector("#play-mode-label").textContent = `${game.genre} | 站内可玩模式`;
   root.querySelector("#detail-features").innerHTML = game.features.map((item) => `<li>${item}</li>`).join("");
 
   const user = getUser();
@@ -338,7 +338,7 @@ function openGame(id) {
 
   root.querySelector("#comment-form").addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = commentName.value.trim() || "�ο�";
+    const name = commentName.value.trim() || "游客";
     const rating = Number(root.querySelector("#comment-rating").value);
     const text = root.querySelector("#comment-text").value.trim();
     if (!rating || !text) return;
@@ -395,11 +395,11 @@ function playTarget(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">�÷�<strong id="score">0</strong></span>
-        <span class="status-pill">ʱ��<strong id="timer">20</strong>s</span>
+        <span class="status-pill">得分<strong id="score">0</strong></span>
+        <span class="status-pill">时间<strong id="timer">20</strong>s</span>
       </div>
       <div class="target-board" id="target-board"></div>
-      <div class="stage-note">�������ɫĿ��÷֣�20 �������</div>
+      <div class="stage-note">点击蓝绿色目标得分，20 秒结束。</div>
     </div>
   `;
   const board = stage.querySelector("#target-board");
@@ -432,7 +432,7 @@ function playTarget(stage) {
     if (timeLeft <= 0) {
       clearInterval(clock);
       clearInterval(spawnTimer);
-      board.innerHTML = `<div class="empty-stage">��ս�������������� ${score} ��Ŀ�ꡣ</div>`;
+      board.innerHTML = `<div class="empty-stage">挑战结束，你命中了 ${score} 个目标。</div>`;
     }
   }, 1000);
 
@@ -447,15 +447,15 @@ function playCode(stage) {
   let tries = 6;
   stage.innerHTML = `
     <div class="play-stage">
-      <div class="score-box">���򣺲�һ�� 3 λ���롣ÿ�λ�������м���������ȷ��λ����ȷ��</div>
+      <div class="score-box">规则：猜一个 3 位密码。每次会告诉你有几个数字正确且位置正确。</div>
       <div class="stage-toolbar">
-        <input class="name-input" id="guess-input" maxlength="3" placeholder="���� 3 λ����">
-        <button class="button primary" id="guess-button" type="button">�ύ</button>
+        <input class="name-input" id="guess-input" maxlength="3" placeholder="输入 3 位数字">
+        <button class="button primary" id="guess-button" type="button">提交</button>
       </div>
       <div class="status-line">
-        <span class="status-pill">ʣ�����<strong id="tries">${tries}</strong></span>
+        <span class="status-pill">剩余次数<strong id="tries">${tries}</strong></span>
       </div>
-      <div class="log-box" id="guess-log">��ʼ�������롣</div>
+      <div class="log-box" id="guess-log">开始解锁密码。</div>
     </div>
   `;
   const input = stage.querySelector("#guess-input");
@@ -470,12 +470,12 @@ function playCode(stage) {
       if (answer[index] === n) exact += 1;
     });
     if (value === answer) {
-      log.innerHTML = `<strong>�ƽ�ɹ���</strong>������� ${answer}��`;
+      log.innerHTML = `<strong>破解成功：</strong>密码就是 ${answer}。`;
       tries = 0;
     } else if (tries === 0) {
-      log.innerHTML += `<br>���һ��ʧ�ܣ���ȷ������ ${answer}��`;
+      log.innerHTML += `<br>最后一次失败，正确密码是 ${answer}。`;
     } else {
-      log.innerHTML += `<br>${value}��λ����ȫ��ȷ ${exact} ����`;
+      log.innerHTML += `<br>${value}：位置完全正确 ${exact} 个。`;
     }
     triesNode.textContent = String(tries);
     input.value = "";
@@ -493,16 +493,16 @@ function playRace(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="run-track">
-        <span>��</span>
+        <span>你</span>
         <div class="runner-bar"><div class="runner-fill" id="player-fill"></div></div>
       </div>
       <div class="run-track">
-        <span>����</span>
+        <span>电脑</span>
         <div class="runner-bar"><div class="runner-fill" id="cpu-fill"></div></div>
       </div>
       <div class="stage-toolbar">
-        <button class="button primary" id="boost-button" type="button">�͵����</button>
-        <span class="stage-note" id="race-status">�ȵ� 100% ��ʤ��</span>
+        <button class="button primary" id="boost-button" type="button">猛点加速</button>
+        <span class="stage-note" id="race-status">先到 100% 获胜。</span>
       </div>
     </div>
   `;
@@ -514,7 +514,7 @@ function playRace(stage) {
     cpu = Math.min(100, cpu + 3 + Math.floor(Math.random() * 5));
     cpuFill.style.width = `${cpu}%`;
     if (cpu >= 100) {
-      status.textContent = "�������ȳ��ߣ�����һ�ְɡ�";
+      status.textContent = "电脑率先冲线，再来一局吧。";
       clearInterval(tick);
       button.disabled = true;
     }
@@ -524,7 +524,7 @@ function playRace(stage) {
     player = Math.min(100, player + 8);
     playerFill.style.width = `${player}%`;
     if (player >= 100) {
-      status.textContent = "��Ӯ�����ⳡ��̡�";
+      status.textContent = "你赢下了这场冲刺。";
       clearInterval(tick);
       button.disabled = true;
     }
@@ -533,7 +533,7 @@ function playRace(stage) {
 }
 
 function playMemory(stage) {
-  const symbols = ["��", "��", "��", "��", "��", "?"];
+  const symbols = ["A", "B", "C", "D", "E", "F"];
   const deck = [...symbols, ...symbols].sort(() => Math.random() - 0.5);
   let opened = [];
   let matched = 0;
@@ -541,8 +541,8 @@ function playMemory(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">����<strong id="moves">0</strong></span>
-        <span class="status-pill">���<strong id="matched">0</strong>/6</span>
+        <span class="status-pill">步数<strong id="moves">0</strong></span>
+        <span class="status-pill">配对<strong id="matched">0</strong>/6</span>
       </div>
       <div class="memory-grid" id="memory-grid"></div>
     </div>
@@ -585,7 +585,7 @@ function playMemory(stage) {
         matched += 1;
         matchedNode.textContent = String(matched);
         if (matched === symbols.length) {
-          grid.insertAdjacentHTML("beforeend", '<div class="empty-stage">ȫ����Գɹ���</div>');
+          grid.insertAdjacentHTML("beforeend", '<div class="empty-stage">全部配对成功。</div>');
         }
       } else {
         window.setTimeout(() => {
@@ -607,20 +607,20 @@ function playBuilder(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">�غ�<strong id="turn">${turn}</strong></span>
-        <span class="status-pill">����<strong id="core">${core}</strong>/3</span>
+        <span class="status-pill">回合<strong id="turn">${turn}</strong></span>
+        <span class="status-pill">核心<strong id="core">${core}</strong>/3</span>
       </div>
       <div class="resource-grid">
-        <div class="resource-card score-box">��ʯ<strong id="ore">${ore}</strong></div>
-        <div class="resource-card score-box">����<strong id="power">${power}</strong></div>
-        <div class="resource-card score-box">���Ķ���<strong id="built">${core}</strong></div>
+        <div class="resource-card score-box">矿石<strong id="ore">${ore}</strong></div>
+        <div class="resource-card score-box">电力<strong id="power">${power}</strong></div>
+        <div class="resource-card score-box">核心段数<strong id="built">${core}</strong></div>
       </div>
       <div class="stage-toolbar">
-        <button class="resource-button" id="mine-button" type="button">�ɿ� +2</button>
-        <button class="resource-button" id="charge-button" type="button">���� +2</button>
-        <button class="resource-button" id="build-button" type="button">�������</button>
+        <button class="resource-button" id="mine-button" type="button">采矿 +2</button>
+        <button class="resource-button" id="charge-button" type="button">充能 +2</button>
+        <button class="resource-button" id="build-button" type="button">建造核心</button>
       </div>
-      <div class="log-box" id="builder-log">8 �غ������ 3 �κ��ļ���ͨ�ء�</div>
+      <div class="log-box" id="builder-log">8 回合内造出 3 段核心即可通关。</div>
     </div>
   `;
   const update = (text) => {
@@ -631,11 +631,11 @@ function playBuilder(stage) {
     stage.querySelector("#built").textContent = String(core);
     stage.querySelector("#builder-log").textContent = text;
     if (turn <= 0 && core < 3) {
-      stage.querySelector("#builder-log").textContent = "ʱ��ľ������Ľ���ʧ�ܡ�";
+      stage.querySelector("#builder-log").textContent = "时间耗尽，核心建造失败。";
       disable();
     }
     if (core >= 3) {
-      stage.querySelector("#builder-log").textContent = "����ɹ�������ס�˻��ء�";
+      stage.querySelector("#builder-log").textContent = "建造成功，你守住了基地。";
       disable();
     }
   };
@@ -650,12 +650,12 @@ function playBuilder(stage) {
   stage.querySelector("#mine-button").addEventListener("click", () => {
     spendTurn();
     ore += 2;
-    update("��ʯ���������");
+    update("矿石库存提升。");
   });
   stage.querySelector("#charge-button").addEventListener("click", () => {
     spendTurn();
     power += 2;
-    update("����ϵͳ������ɡ�");
+    update("电力系统补充完成。");
   });
   stage.querySelector("#build-button").addEventListener("click", () => {
     spendTurn();
@@ -663,9 +663,9 @@ function playBuilder(stage) {
       ore -= 2;
       power -= 2;
       core += 1;
-      update("�ɹ�����һ�κ��ġ�");
+      update("成功建成一段核心。");
     } else {
-      update("��Դ���㣬�޷����졣");
+      update("资源不足，无法建造。");
     }
   });
   return () => {};
@@ -679,16 +679,16 @@ function playDuel(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">�������<strong id="player-hp">${playerHp}</strong></span>
-        <span class="status-pill">��������<strong id="cpu-hp">${cpuHp}</strong></span>
+        <span class="status-pill">你的生命<strong id="player-hp">${playerHp}</strong></span>
+        <span class="status-pill">对手生命<strong id="cpu-hp">${cpuHp}</strong></span>
       </div>
       <div class="duel-grid">
-        <button class="duel-option" data-act="attack" type="button">���� 3 ��</button>
-        <button class="duel-option" data-act="guard" type="button">���ؼ���</button>
-        <button class="duel-option" data-act="charge" type="button">�����ػ�</button>
-        <button class="duel-option" data-act="burst" type="button">�������� 2 ������</button>
+        <button class="duel-option" data-act="attack" type="button">攻击 3 点</button>
+        <button class="duel-option" data-act="guard" type="button">防守减伤</button>
+        <button class="duel-option" data-act="charge" type="button">蓄力重击</button>
+        <button class="duel-option" data-act="burst" type="button">爆发消耗 2 层蓄力</button>
       </div>
-      <div class="log-box" id="duel-log">ѡ����Ļغ϶�����</div>
+      <div class="log-box" id="duel-log">选择你的回合动作。</div>
     </div>
   `;
   const log = stage.querySelector("#duel-log");
@@ -700,7 +700,7 @@ function playDuel(stage) {
       buttons.forEach((button) => {
         button.disabled = true;
       });
-      log.textContent = cpuHp <= 0 ? "��Ӯ�����ⳡ���ھ�����" : "�㱻���ֻ����ˡ�";
+      log.textContent = cpuHp <= 0 ? "你赢下了这场王冠决斗。" : "你被对手击败了。";
     }
   };
   buttons.forEach((button) => {
@@ -729,7 +729,7 @@ function playDuel(stage) {
 
       playerHp -= playerDamage;
       cpuHp -= cpuDamage;
-      log.textContent = `��ѡ�� ${labelForAct(act)}������ѡ�� ${labelForAct(cpuAct)}��`;
+      log.textContent = `你选择 ${labelForAct(act)}，对手选择 ${labelForAct(cpuAct)}。`;
       update();
     });
   });
@@ -737,33 +737,33 @@ function playDuel(stage) {
 }
 
 function labelForAct(act) {
-  if (act === "attack") return "����";
-  if (act === "guard") return "����";
-  if (act === "charge") return "����";
-  return "����";
+  if (act === "attack") return "攻击";
+  if (act === "guard") return "防守";
+  if (act === "charge") return "蓄力";
+  return "爆发";
 }
 
 function playStory(stage) {
   const scenes = [
     {
-      text: "����ͣ����ù����������洫����������",
+      text: "你在停电的旅馆醒来，外面传来敲门声。",
       options: [
-        { label: "���̿���", hp: -3, next: "����û�ˣ����㱻���š����� -3��" },
-        { label: "�����ֵ�", hp: 0, next: "���ҵ��ֵ磬�������ȡ�" }
+        { label: "立刻开门", hp: -3, next: "门外没人，但你被惊吓。生命 -3。" },
+        { label: "先找手电", hp: 0, next: "你找到手电，局势稍稳。" }
       ]
     },
     {
-      text: "���Ⱦ�ͷ��������Ħ������",
+      text: "走廊尽头传来金属摩擦声。",
       options: [
-        { label: "�������", hp: -2, next: "��ˤ�����ˣ����� -2��" },
-        { label: "�������۲�", hp: 0, next: "��ܿ���Σ�ա�" }
+        { label: "冲向出口", hp: -2, next: "你摔倒受伤，生命 -2。" },
+        { label: "躲进房间观察", hp: 0, next: "你避开了危险。" }
       ]
     },
     {
-      text: "������ˣ������Һ�¥��������ͨ��ȫ����",
+      text: "天快亮了，地下室和楼顶都可能通向安全区。",
       options: [
-        { label: "ȥ������", hp: -2, next: "·���գ�����Ӳ�Ź����ˡ����� -2��" },
-        { label: "ȥ¥��", hp: 0, next: "��ȵ��˾�Ԯ�ƹ⡣" }
+        { label: "去地下室", hp: -2, next: "路很险，但你硬撑过来了。生命 -2。" },
+        { label: "去楼顶", hp: 0, next: "你等到了救援灯光。" }
       ]
     }
   ];
@@ -772,7 +772,7 @@ function playStory(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">����<strong id="story-hp">${hp}</strong></span>
+        <span class="status-pill">生命<strong id="story-hp">${hp}</strong></span>
       </div>
       <div class="score-box" id="story-text"></div>
       <div class="story-grid" id="story-options"></div>
@@ -784,12 +784,12 @@ function playStory(stage) {
 
   const render = () => {
     if (hp <= 0) {
-      text.textContent = "��û�ܳŵ���������սʧ�ܡ�";
+      text.textContent = "你没能撑到黎明，挑战失败。";
       options.innerHTML = "";
       return;
     }
     if (index >= scenes.length) {
-      text.textContent = "��ɹ��ŵ������������������";
+      text.textContent = "你成功撑到了天亮，完成逃生。";
       options.innerHTML = "";
       return;
     }
@@ -820,10 +820,10 @@ function playCards(stage) {
   stage.innerHTML = `
     <div class="play-stage">
       <div class="status-line">
-        <span class="status-pill">�÷�<strong id="card-score">${score}</strong></span>
-        <span class="status-pill">�غ�<strong id="card-round">${round}</strong>/6</span>
+        <span class="status-pill">得分<strong id="card-score">${score}</strong></span>
+        <span class="status-pill">回合<strong id="card-round">${round}</strong>/6</span>
       </div>
-      <div class="score-box" id="card-rule">�ҳ���������󡱵Ŀ��ơ�</div>
+      <div class="score-box" id="card-rule">找出“数字最大”的卡牌。</div>
       <div class="card-row" id="card-row"></div>
     </div>
   `;
@@ -832,15 +832,15 @@ function playCards(stage) {
   const row = stage.querySelector("#card-row");
   const ruleNode = stage.querySelector("#card-rule");
   const rules = [
-    { text: "�ҳ��������Ŀ��ơ�", pick: (cards) => cards.indexOf(Math.max(...cards)) },
-    { text: "�ҳ�Ψһ��ż�����ơ�", pick: (cards) => cards.findIndex((n) => n % 2 === 0) },
-    { text: "�ҳ���ӽ� 10 �Ŀ��ơ�", pick: (cards) => cards.indexOf(cards.slice().sort((a, b) => Math.abs(a - 10) - Math.abs(b - 10))[0]) }
+    { text: "找出数字最大的卡牌。", pick: (cards) => cards.indexOf(Math.max(...cards)) },
+    { text: "找出唯一的偶数卡牌。", pick: (cards) => cards.findIndex((n) => n % 2 === 0) },
+    { text: "找出最接近 10 的卡牌。", pick: (cards) => cards.indexOf(cards.slice().sort((a, b) => Math.abs(a - 10) - Math.abs(b - 10))[0]) }
   ];
 
   const nextRound = () => {
     if (round >= 6) {
-      row.innerHTML = `<div class="empty-stage">��ս���������յ÷� ${score}��</div>`;
-      ruleNode.textContent = "��������ɡ�";
+      row.innerHTML = `<div class="empty-stage">挑战结束，最终得分 ${score}。</div>`;
+      ruleNode.textContent = "本局已完成。";
       return;
     }
     round += 1;
@@ -850,7 +850,7 @@ function playCards(stage) {
     const answer = rule.pick(cards);
     ruleNode.textContent = rule.text;
     row.innerHTML = cards.map((card, index) => `
-      <button class="card-button" data-index="${index}" type="button">���� ${card}</button>
+      <button class="card-button" data-index="${index}" type="button">卡牌 ${card}</button>
     `).join("");
     row.querySelectorAll(".card-button").forEach((button) => {
       button.addEventListener("click", () => {
@@ -873,7 +873,7 @@ els.grid.addEventListener("click", (event) => {
   const openTarget = event.target.closest("[data-open]");
   if (openTarget) openGame(openTarget.dataset.open);
   const zoomTarget = event.target.closest("[data-zoom-src]");
-  if (zoomTarget) openZoom(zoomTarget.dataset.zoomSrc, zoomTarget.dataset.zoomTitle || "����");
+  if (zoomTarget) openZoom(zoomTarget.dataset.zoomSrc, zoomTarget.dataset.zoomTitle || "封面");
 });
 
 els.random.addEventListener("click", () => {
@@ -917,16 +917,4 @@ document.addEventListener("keydown", (event) => {
 populateGenres();
 renderUser();
 updateStats();
-renderGames();
-
-  }
-});
-
-renderUser();
-initGenres();
-renderGames();
-
-
-renderUser();
-initGenres();
 renderGames();
