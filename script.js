@@ -123,7 +123,7 @@ const games = [
 ];
 
 const $ = (selector) => document.querySelector(selector);
-const els = {
+const queryElements = () => ({
   search: $("#search-input"),
   genre: $("#genre-filter"),
   sort: $("#sort-filter"),
@@ -152,36 +152,73 @@ const els = {
   zoomExit: $("#zoom-exit"),
   zoomImage: $("#zoom-image"),
   zoomTitle: $("#zoom-title")
-};
+});
+let els;
 
 let activeGameId = null;
 let cleanup = null;
+let isInitialized = false;
 
-const getUser = () => {
+const getStorage = () => {
   try {
-    return JSON.parse(localStorage.getItem(AUTH_KEY)) || null;
+    return window.localStorage;
   } catch {
     return null;
   }
 };
 
+const readStorageJSON = (key, fallback) => {
+  const storage = getStorage();
+  if (!storage) return fallback;
+  try {
+    const raw = storage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
+const writeStorageJSON = (key, value) => {
+  const storage = getStorage();
+  if (!storage) return false;
+  try {
+    storage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const removeStorageItem = (key) => {
+  const storage = getStorage();
+  if (!storage) return false;
+  try {
+    storage.removeItem(key);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const getUser = () => {
+  const user = readStorageJSON(AUTH_KEY, null);
+  return user && typeof user === "object" ? user : null;
+};
+
 const setUser = (user) => {
   if (user) {
-    localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+    writeStorageJSON(AUTH_KEY, user);
   } else {
-    localStorage.removeItem(AUTH_KEY);
+    removeStorageItem(AUTH_KEY);
   }
 };
 
 const getComments = () => {
-  try {
-    return JSON.parse(localStorage.getItem(COMMENT_KEY)) || {};
-  } catch {
-    return {};
-  }
+  const comments = readStorageJSON(COMMENT_KEY, {});
+  return comments && typeof comments === "object" && !Array.isArray(comments) ? comments : {};
 };
 
-const saveComments = (value) => localStorage.setItem(COMMENT_KEY, JSON.stringify(value));
+const saveComments = (value) => writeStorageJSON(COMMENT_KEY, value);
 const commentsFor = (id) => getComments()[id] || [];
 const totalComments = () => Object.values(getComments()).reduce((sum, item) => sum + item.length, 0);
 
@@ -307,12 +344,18 @@ function renderComments(gameId, root) {
     : '<div class="empty-state">还没有评论，来发布第一条吧。</div>';
 }
 
+function showStageError(stage, message = "游戏启动失败，请刷新页面后重试。") {
+  if (!stage) return;
+  stage.innerHTML = `<div class="empty-stage">${message}</div>`;
+}
+
 function openGame(id) {
   const game = games.find((item) => item.id === id);
   if (!game) return;
   activeGameId = id;
   if (cleanup) cleanup();
   cleanup = null;
+  if (!els?.tpl || !els?.modalContent || !els?.modal) return;
 
   const fragment = els.tpl.content.cloneNode(true);
   const root = document.createElement("div");
@@ -359,10 +402,23 @@ function openGame(id) {
     renderGames();
   });
 
-  root.querySelector("#launch-game").addEventListener("click", () => {
-    if (cleanup) cleanup();
-    cleanup = launchMode(game, root.querySelector("#game-stage"));
-  });
+  const launchButton = root.querySelector("#launch-game");
+  const stage = root.querySelector("#game-stage");
+  if (launchButton) {
+    launchButton.addEventListener("click", () => {
+      if (!stage) {
+        showStageError(stage, "游戏区域加载失败，请关闭弹窗后重试。");
+        return;
+      }
+      try {
+        if (cleanup) cleanup();
+        cleanup = launchMode(game, stage);
+      } catch {
+        cleanup = null;
+        showStageError(stage);
+      }
+    });
+  }
 
   root.addEventListener("click", (event) => {
     const target = event.target.closest("[data-zoom-src]");
@@ -865,60 +921,101 @@ function playCards(stage) {
   return () => {};
 }
 
-els.search.addEventListener("input", renderGames);
-els.genre.addEventListener("change", renderGames);
-els.sort.addEventListener("change", renderGames);
+function init() {
+  if (isInitialized) return;
+  els = queryElements();
 
-els.grid.addEventListener("click", (event) => {
-  const openTarget = event.target.closest("[data-open]");
-  if (openTarget) openGame(openTarget.dataset.open);
-  const zoomTarget = event.target.closest("[data-zoom-src]");
-  if (zoomTarget) openZoom(zoomTarget.dataset.zoomSrc, zoomTarget.dataset.zoomTitle || "封面");
-});
+  const requiredKeys = [
+    "search",
+    "genre",
+    "sort",
+    "grid",
+    "gameCount",
+    "genreCount",
+    "commentCount",
+    "random",
+    "modal",
+    "modalContent",
+    "modalClose",
+    "modalExit",
+    "tpl",
+    "authModal",
+    "authForm",
+    "authName",
+    "authPassword",
+    "authStatus",
+    "login",
+    "logout",
+    "authClose",
+    "authExit",
+    "userName",
+    "zoomModal",
+    "zoomClose",
+    "zoomExit",
+    "zoomImage",
+    "zoomTitle"
+  ];
 
-els.random.addEventListener("click", () => {
-  const randomGame = games[Math.floor(Math.random() * games.length)];
-  openGame(randomGame.id);
-});
+  if (requiredKeys.some((key) => !els[key])) return;
 
-els.modalClose.addEventListener("click", closeGame);
-els.modalExit.addEventListener("click", closeGame);
-els.authClose.addEventListener("click", closeAuth);
-els.authExit.addEventListener("click", closeAuth);
-els.zoomClose.addEventListener("click", closeZoom);
-els.zoomExit.addEventListener("click", closeZoom);
-els.login.addEventListener("click", openAuth);
+  els.search.addEventListener("input", renderGames);
+  els.genre.addEventListener("change", renderGames);
+  els.sort.addEventListener("change", renderGames);
 
-els.authForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const name = els.authName.value.trim();
-  const password = els.authPassword.value.trim();
-  if (!name || password.length < 4) return;
-  setUser({ name, password });
-  renderUser();
-  closeAuth();
-});
+  els.grid.addEventListener("click", (event) => {
+    const openTarget = event.target.closest("[data-open]");
+    if (openTarget) openGame(openTarget.dataset.open);
+    const zoomTarget = event.target.closest("[data-zoom-src]");
+    if (zoomTarget) openZoom(zoomTarget.dataset.zoomSrc, zoomTarget.dataset.zoomTitle || "封面");
+  });
 
-els.logout.addEventListener("click", () => {
-  setUser(null);
-  renderUser();
-  els.authName.value = "";
-  els.authPassword.value = "";
-});
+  els.random.addEventListener("click", () => {
+    const randomGame = games[Math.floor(Math.random() * games.length)];
+    openGame(randomGame.id);
+  });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeZoom();
+  els.modalClose.addEventListener("click", closeGame);
+  els.modalExit.addEventListener("click", closeGame);
+  els.authClose.addEventListener("click", closeAuth);
+  els.authExit.addEventListener("click", closeAuth);
+  els.zoomClose.addEventListener("click", closeZoom);
+  els.zoomExit.addEventListener("click", closeZoom);
+  els.login.addEventListener("click", openAuth);
+
+  els.authForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = els.authName.value.trim();
+    const password = els.authPassword.value.trim();
+    if (!name || password.length < 4) return;
+    setUser({ name, password });
+    renderUser();
     closeAuth();
-    closeGame();
-  }
-});
+  });
 
-populateGenres();
-renderUser();
-updateStats();
-renderGames();
+  els.logout.addEventListener("click", () => {
+    setUser(null);
+    renderUser();
+    els.authName.value = "";
+    els.authPassword.value = "";
+  });
 
-renderUser();
-updateStats();
-renderGames();
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeZoom();
+      closeAuth();
+      closeGame();
+    }
+  });
+
+  populateGenres();
+  renderUser();
+  updateStats();
+  renderGames();
+  isInitialized = true;
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init, { once: true });
+} else {
+  init();
+}
