@@ -11,6 +11,7 @@
 </head>
 <body>
   <h1>网站作者是神经的杜方与哦</h1>
+  <h1>当前版本：V1.40</h1>
   <div class="page-shell">
     <header class="hero">
       <nav class="topbar">
@@ -23,10 +24,10 @@
         </div>
         <div class="top-actions">
           <div class="user-pill">
-            <span class="user-label">当前状态</span>
+            <span class="user-label">当前账号</span>
             <strong id="user-name-display">游客</strong>
           </div>
-          <button class="top-link" id="login-trigger" type="button">登录账号</button>
+          <button class="top-link" id="login-trigger" type="button">账号登录</button>
         </div>
       </nav>
 
@@ -99,18 +100,18 @@
     <div class="auth-dialog">
       <button class="modal-exit" id="auth-exit" type="button" aria-label="关闭">×</button>
       <div class="auth-card">
-        <p class="eyebrow">PLAYER LOGIN</p>
-        <h2>登录你的玩家身份</h2>
-        <p class="hero-text">登录后会在本地保存昵称，评论会自动使用你的账号名。</p>
+        <p class="eyebrow">PLAYER ACCOUNT</p>
+        <h2>登录本地账号</h2>
+        <p class="hero-text">输入账号和密码后会保存在本地浏览器，用于显示当前身份并同步到评论区。</p>
         <form class="auth-form" id="auth-form">
-          <input id="auth-name" type="text" maxlength="18" placeholder="输入昵称" required>
+          <input id="auth-name" type="text" maxlength="18" placeholder="输入账号名" required>
           <input id="auth-password" type="password" minlength="4" maxlength="24" placeholder="输入密码" required>
-          <button class="button primary full" type="submit">立即登录</button>
+          <button class="button primary full" type="submit">保存并登录</button>
         </form>
         <div class="auth-actions">
-          <button class="button ghost full" id="logout-button" type="button">退出登录</button>
+          <button class="button ghost full" id="logout-button" type="button">退出当前账号</button>
         </div>
-        <p class="auth-tip" id="auth-status">未登录时将以游客身份浏览。</p>
+        <p class="auth-tip" id="auth-status">当前未登录账号，将以游客身份浏览。</p>
       </div>
     </div>
   </div>
@@ -162,8 +163,8 @@
             <h4>玩家评论</h4>
             <span id="detail-comment-count">0 条</span>
           </div>
+          <p class="comment-account" id="comment-account-status">当前以游客身份发表评论。</p>
           <form class="comment-form" id="comment-form">
-            <input id="comment-name" type="text" maxlength="20" placeholder="你的昵称" required>
             <select id="comment-rating" required>
               <option value="">评分</option>
               <option value="5">5 星</option>
@@ -184,6 +185,10 @@
   <script src="script.js"></script>
   <a class="button primary" href="https://omg-by-clark.github.io" target="_blank" rel="noopener noreferrer">
   前往张弛的网站
+</a>
+</body>
+</html>
+
 </a>
 </body>
 </html>
