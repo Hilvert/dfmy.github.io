@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jump跳跳</title>    
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="game-wrapper">
+      <div class="game-ui">
+        <span class="score-label">Score</span>
+        <span id="scoreEl" class="score-value">0</span>
+        <span class="high-score-label">Best</span>
+        <span id="highScoreEl" class="high-score-value">0</span>
+      </div>
+      <canvas id="gameCanvas" width="480" height="600"></canvas>
+      <div class="mobile-controls" id="mobileControls">
+        <button type="button" class="ctrl-btn ctrl-left" id="btnLeft" aria-label="Move left">←</button>
+        <button type="button" class="ctrl-btn ctrl-right" id="btnRight" aria-label="Move right">→</button>
+      </div>
+      <div id="startOverlay" class="overlay overlay-start">
+        <h1>Jump跳跳</h1>
+        <p>用 <kbd>←</kbd> <kbd>→</kbd> 或 <kbd>A</kbd> <kbd>D</kbd>来移动</p>
+        <p class="mobile-hint">或者点击箭头也行</p>
+        <p>绿色：普通地面 黄色：一次性地面 蓝色：移动地面</p>
+        <p>落地跳高！</p>
+        <button type="button" id="startBtn" class="btn-start">开屎游戏</button>
+      </div>
+      <div id="gameOverOverlay" class="overlay overlay-gameover hidden">
+        <h2>菜就多练</h2>
+        <p>分数: <span id="finalScoreEl">0</span></p>
+        <button type="button" id="restartBtn" class="btn-start">不服？再战！</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
