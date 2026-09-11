@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拼图</title>
+
+    
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Level selection -->
+      <div id="levelScreen" class="level-screen">
+        <div class="level-header">
+          <h1>拼图</h1>
+          <button type="button" id="helpBtnLevel" class="help-btn" title="How to play" aria-label="How to play">?</button>
+        </div>
+        <p>选择难度</p>
+        <div class="level-buttons">
+          <button type="button" data-level="easy" class="level-btn">
+            <span class="level-name">简单</span>
+            <span class="level-desc">3×3</span>
+          </button>
+          <button type="button" data-level="medium" class="level-btn">
+            <span class="level-name">中等</span>
+            <span class="level-desc">4×4</span>
+          </button>
+          <button type="button" data-level="hard" class="level-btn">
+            <span class="level-name">困难</span>
+            <span class="level-desc">5×5</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Game screen -->
+      <div id="gameScreen" class="game-screen hidden">
+        <header class="header">
+          <h1>拼图</h1>
+          <button type="button" id="helpBtnGame" class="help-btn" title="How to play" aria-label="How to play">?</button>
+          <span class="level-badge" id="levelBadge">简单</span>
+          <div class="header-actions">
+            <span class="moves" id="moves">步数: 0</span>
+            <button type="button" id="changeLevelBtn" class="btn btn-ghost">等级</button>
+            <button type="button" id="newGameBtn" class="btn">开干！</button>
+          </div>
+        </header>
+
+        <main class="game-container">
+          <div id="board" class="board" role="grid" aria-label="Sliding puzzle board"></div>
+        </main>
+
+        <!-- Win overlay -->
+        <div id="winOverlay" class="win-overlay hidden">
+          <div class="win-box">
+            <h2>你解决了它！你他妈真牛逼！</h2>
+            <p id="winMoves">步数: 0</p>
+            <div class="win-actions">
+              <button type="button" id="playAgainBtn" class="btn btn-large">再玩一次</button>
+              <button type="button" id="changeLevelFromWinBtn" class="btn btn-ghost">更换等级</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to play modal -->
+    <div id="helpOverlay" class="help-overlay hidden" aria-hidden="true">
+      <div class="help-modal" role="dialog" aria-labelledby="helpTitle" aria-modal="true">
+        <div class="help-header">
+          <h2 id="helpTitle">如何玩耍</h2>
+          <button type="button" id="helpClose" class="help-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="help-body">
+          <p>滑动拼图块来重新组合图像。</p>
+          <ul>
+            <li><strong>目标:</strong> 排列瓷砖使完整的图像恢复。空白区域应该在右下角。</li>
+            <li><strong>移动:</strong> 点击或点按与空白空间相邻的任何瓷砖（上、下、左或右）。该瓷砖将滑入空白区域。</li>
+            <li><strong>等级:</strong> 简单 (3×3), 中等 (4×4), 困难 (5×5)， 要玩啥自己选</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
